@@ -13,6 +13,7 @@ def yuanliti(request):
     dic = {
         #标题
         'dic1':{
+            "block":7,
             "id": 1,
             "text": "",
             "type": 1002,
@@ -236,6 +237,7 @@ def anliti(request):
     dic = {
         #标题
         'dic1':{
+            "block":7,
             "id": 1,
             "text": "",
             "type": 1002,
@@ -479,6 +481,7 @@ def dapeiti(request):
     dic = {
         #标题
         'dic1':{
+            "block":7,
             "id": 1,
             "text": "",
             "type": 1002,
@@ -805,6 +808,7 @@ def shuomingti(request):
     dic = {
         #标题
         'dic1':{
+            "block":7,
             "id": 1,
             "text": "",
             "type": 1002,
