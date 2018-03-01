@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>json数据生成</title>
+
+    <style type="text/css">
+        input {
+            width: 800px;
+            height: 25px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <table>
+        <tr><input id="title" type="text" name="title" placeholder="案例题题目"></tr><br>
+        <tr><input id="content" type="text" placeholder="案例题所有正文"></tr><br>
+        <tr><input type="text" id="bold1"  placeholder="正文中需要加粗的所有地方，每个用|分开录入"></tr><br>
+
+        <tr><input id="image1" type="text" placeholder="正文图片地址1"></tr><br>
+        <tr><input id="image2" type="text" placeholder="正文图片地址2"></tr><br>
+        <tr><input id="image3" type="text" placeholder="正文图片地址3"></tr><br>
+        <tr><input id="image4" type="text" placeholder="正文图片地址4"></tr><br>
+
+        <tr><input id="right" type="text" placeholder="正确答案文本"></tr><br>
+        <tr><input id="rightimage" type="text" placeholder="正确答案图片地址"></tr><br>
+        <tr><input id="error1" type="text" placeholder="错误答案文本1"></tr><br>
+        <tr><input id="error1image" type="text" placeholder="错误答案图片地址"></tr><br>
+        <tr><input id="error2" type="text" placeholder="错误答案文本2"></tr><br>
+        <tr><input id="error2image" type="text" placeholder="错误答案图片地址"></tr><br>
+        <tr><input id="error3" type="text" placeholder="错误答案文本3"></tr><br>
+        <tr><input id="error3image" type="text" placeholder="错误答案图片地址"></tr><br>
+
+        <tr><input id="intro" type="text" placeholder="过渡段／介绍段"></tr><br>
+        <tr><input id="know" type="text" placeholder="解释/知识锦囊"></tr><br>
+        <tr><input type="text" id="bold2" placeholder="解释／知识中需要加粗的所有地方，每个用|分开录入"></tr><br>
+
+        <tr><input id="image5" type="text" placeholder="解释图片地址5"></tr><br>
+        <tr><input id="image6" type="text" placeholder="解释图片地址6"></tr><br>
+        <tr><input id="image7" type="text" placeholder="解释图片地址7"></tr><br>
+        <tr><input id="image8" type="text" placeholder="解释图片地址8"></tr><br>
+
+        <tr><button>生成json</button></tr>
+    </table>
+
+    <textarea id="tarea" rows="20" cols="100"></textarea>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    $(function(){
+
+        $("button").click(function(){
+
+        var title = $("#title").val();
+
+        var content = $("#content").val();
+        var bold1 = $("#bold1").val();
+        var image1 = $("#image1").val();
+        var image2 = $("#image2").val();
+        var image3 = $("#image3").val();
+        var image4 = $("#image4").val();
+
+        var right = $("#right").val();
+        var rightimage = $("#rightimage").val();
+        var error1 = $("#error1").val();
+        var error1image = $("#error1image").val();
+
+        var error2 = $("#error2").val();
+        var error2image = $("#error2image").val();
+
+        var error3 = $("#error3").val();
+        var error3image = $("#error3image").val();
+
+        var intro = $("#intro").val();
+        var know = $("#know").val();
+        var bold2 = $("#bold2").val();
+
+
+        var image5 = $("#image5").val();
+        var image6 = $("#image6").val();
+        var image7 = $("#image7").val();
+        var image8 = $("#image8").val();
+
+
+    　　 $.ajax({
+
+    　　　　url:"/anliti/",
+    　　　　type:"post",
+    　　　　dataType:"json",　　
+    　　　　data:{
+
+            action:'anliti',
+            title:title,
+            content:content,
+            bold1:bold1,
+            right:right,
+            rightimage:rightimage,
+            error1:error1,
+            error1image:error1image,
+            error2:error2,
+            error2image:error2image,
+            error3:error3,
+            error3image:error3image,
+
+            intro:intro,
+            know:know,
+            bold2:bold2,
+            image1:image1,
+            image2:image2,
+            image3:image3,
+            image4:image4,
+            image5:image5,
+            image6:image6,
+            image7:image7,
+            image8:image8
+
+          },
+    　　　　success:function(data){
+                // alert(data.title)
+                $("#tarea").val(
+                    '['+
+                    '{"text":"'+data.dic1.text+'",'
+                    +'"id":"'+data.dic1.id+'",'
+                    +'"type":"'+data.dic1.type+'",'
+                    +'"userId":"'+data.dic1.userId+'"},'
+
+                    +'{"text":"'+data.dic2.text+'",'
+                    +'"id":"'+data.dic2.id+'",'
+                    +'"type":"'+data.dic2.type+'",'
+                    +'"userId":"'+data.dic2.userId+'"},'
+
+                    +'{"text":"'+data.dic3.text+'",'
+                    +'"id":"'+data.dic3.id+'",'
+                    +'"type":"'+data.dic3.type+'",'
+                    +'"userId":"'+data.dic3.userId+'"},'
+
+                    +'{"image":"'+data.dic4.image+'",'
+                    +'"id":"'+data.dic4.id+'",'
+                    +'"type":"'+data.dic4.type+'",'
+                    +'"userId":"'+data.dic4.userId+'"},'
+
+                    +'{"image":"'+data.dic5.image+'",'
+                    +'"id":"'+data.dic5.id+'",'
+                    +'"type":"'+data.dic5.type+'",'
+                    +'"userId":"'+data.dic5.userId+'"},'
+
+                    +'{"image":"'+data.dic6.image+'",'
+                    +'"id":"'+data.dic6.id+'",'
+                    +'"type":"'+data.dic6.type+'",'
+                    +'"userId":"'+data.dic6.userId+'"},'
+
+                    +'{"image":"'+data.dic7.image+'",'
+                    +'"id":"'+data.dic7.id+'",'
+                    +'"type":"'+data.dic7.type+'",'
+                    +'"userId":"'+data.dic7.userId+'"},'
+
+                    +'{"image":"'+data.dic8.image+'",'
+                    +'"correctId":"'+data.dic8.correctId+'",'
+                    +'"id":"'+data.dic8.id+'",'
+                    +'"text":"'+data.dic8.text+'",'
+                    +'"type":"'+data.dic8.type+'",'
+                    +'"userId":"'+data.dic8.userId+'"},'
+
+                    +'{"image":"'+data.dic9.image+'",'
+                    +'"correctId":"'+data.dic9.correctId+'",'
+                    +'"id":"'+data.dic9.id+'",'
+                    +'"text":"'+data.dic9.text+'",'
+                    +'"type":"'+data.dic9.type+'",'
+                    +'"userId":"'+data.dic9.userId+'"},'
+
+                    +'{"image":"'+data.dic10.image+'",'
+                    +'"correctId":"'+data.dic10.correctId+'",'
+                    +'"id":"'+data.dic10.id+'",'
+                    +'"text":"'+data.dic10.text+'",'
+                    +'"type":"'+data.dic10.type+'",'
+                    +'"userId":"'+data.dic10.userId+'"},'
+
+                    +'{"image":"'+data.dic11.image+'",'
+                    +'"correctId":"'+data.dic11.correctId+'",'
+                    +'"id":"'+data.dic11.id+'",'
+                    +'"text":"'+data.dic11.text+'",'
+                    +'"type":"'+data.dic11.type+'",'
+                    +'"userId":"'+data.dic11.userId+'"},'
+
+                    +'{"text":"'+data.dic12.text+'",'
+                    +'"id":"'+data.dic12.id+'",'
+                    +'"type":"'+data.dic12.type+'",'
+                    +'"userId":"'+data.dic12.userId+'"},'
+
+                    +'{"text":"'+data.dic13.text+'",'
+                    +'"id":"'+data.dic13.id+'",'
+                    +'"type":"'+data.dic13.type+'",'
+                    +'"userId":"'+data.dic13.userId+'"},'
+
+                    +'{"text":"'+data.dic14.text+'",'
+                    +'"id":"'+data.dic14.id+'",'
+                    +'"type":"'+data.dic14.type+'",'
+                    +'"userId":"'+data.dic14.userId+'"},'
+
+                    +'{"image":"'+data.dic15.image+'",'
+                    +'"id":"'+data.dic15.id+'",'
+                    +'"type":"'+data.dic15.type+'",'
+                    +'"userId":"'+data.dic15.userId+'"},'
+
+                    +'{"image":"'+data.dic16.image+'",'
+                    +'"id":"'+data.dic16.id+'",'
+                    +'"type":"'+data.dic16.type+'",'
+                    +'"userId":"'+data.dic16.userId+'"},'
+
+                    +'{"image":"'+data.dic17.image+'",'
+                    +'"id":"'+data.dic17.id+'",'
+                    +'"type":"'+data.dic17.type+'",'
+                    +'"userId":"'+data.dic17.userId+'"},'
+
+                    +'{"image":"'+data.dic18.image+'",'
+                    +'"id":"'+data.dic18.id+'",'
+                    +'"type":"'+data.dic18.type+'",'
+                    +'"userId":"'+data.dic18.userId+'"}'
+
+                    +']');
+              }
+
+    　　　　})
+
+      });
+});
+
+</script>
+</body>
+</html>

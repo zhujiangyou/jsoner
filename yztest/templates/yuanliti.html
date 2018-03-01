@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>json数据生成</title>
+
+    <style type="text/css">
+        input {
+            width: 800px;
+            height: 25px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+
+<div style="width: 50%;">
+    <table>
+        <tr><input id="title" type="text" name="title" placeholder="填空题题目"></tr><br>
+        <tr><input id="content" type="text" placeholder="填空题正文"></tr><br>
+        <tr><input type="text" id="bold1"  placeholder="正文中需要加粗的所有地方，每个用|分开录入"></tr><br>
+
+        <tr><input id="image1" type="text" placeholder="正文图片地址1"></tr><br>
+        <tr><input id="image2" type="text" placeholder="正文图片地址2"></tr><br>
+        <tr><input id="image3" type="text" placeholder="正文图片地址3"></tr><br>
+        <tr><input id="image4" type="text" placeholder="正文图片地址4"></tr><br>
+
+        <tr><input id="right" type="text" placeholder="正确答案文本"></tr><br>
+        <tr><input id="rightimage" type="text" placeholder="正确答案图片地址"></tr><br>
+        <tr><input id="error" type="text" placeholder="错误答案文本"></tr><br>
+        <tr><input id="errorimage" type="text" placeholder="错误答案图片地址"></tr><br>
+
+        <tr><input id="intro" type="text" placeholder="过渡段／介绍段"></tr><br>
+        <tr><input id="know" type="text" placeholder="解释/知识锦囊"></tr><br>
+        <tr><input type="text" id="bold2" placeholder="解释／知识中需要加粗的所有地方，每个用|分开录入"></tr><br>
+
+
+        <tr><input id="image5" type="text" placeholder="解释图片地址1"></tr><br>
+        <tr><input id="image6" type="text" placeholder="解释图片地址2"></tr><br>
+        <tr><input id="image7" type="text" placeholder="解释图片地址3"></tr><br>
+        <tr><input id="image8" type="text" placeholder="解释图片地址4"></tr><br>
+        <tr><button>生成json</button></tr>
+    </table>
+</div>
+
+<div style="width: 50%;">
+    <textarea id="tarea" rows="20" cols="100"></textarea>
+</div>
+
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    $(function(){
+
+        $("button").click(function(){
+
+        var title = $("#title").val();
+
+        var content = $("#content").val();
+        var bold1 = $("#bold1").val();
+
+        var image1 = $("#image1").val();
+        var image2 = $("#image2").val();
+        var image3 = $("#image3").val();
+        var image4 = $("#image4").val();
+
+        var right = $("#right").val();
+        var rightimage = $("#rightimage").val();
+        var error = $("#error").val();
+        var errorimage = $("#errorimage").val();
+
+
+        var intro = $("#intro").val();
+        var know = $("#know").val();
+        var bold2 = $("#bold2").val();
+
+
+        var image5 = $("#image5").val();
+        var image6 = $("#image6").val();
+        var image7 = $("#image7").val();
+        var image8 = $("#image8").val();
+
+
+    　　 $.ajax({
+
+    　　　　url:"/yuanliti/",
+    　　　　type:"post",
+    　　　　dataType:"json",　　
+    　　　　data:{
+
+            action:'tiankong',
+            title:title,
+            content:content,
+            bold1:bold1,
+
+            right:right,
+            rightimage:rightimage,
+            error:error,
+            errorimage:errorimage,
+
+            intro:intro,
+            know:know,
+            bold2:bold2,
+            image1:image1,
+            image2:image2,
+            image3:image3,
+            image4:image4,
+            image5:image5,
+            image6:image6,
+            image7:image7,
+            image8:image8
+
+          },
+    　　　　success:function(data){
+                // alert(data.title)
+                $("#tarea").val(
+                    '['+
+                    '{"text":"'+data.dic1.text+'",'
+                    +'"id":"'+data.dic1.id+'",'
+                    +'"type":"'+data.dic1.type+'",'
+                    +'"userId":"'+data.dic1.userId+'"},'
+
+                    +'{"text":"'+data.dic2.text+'",'
+                    +'"id":"'+data.dic2.id+'",'
+                    +'"type":"'+data.dic2.type+'",'
+                    +'"userId":"'+data.dic2.userId+'"},'
+
+                    +'{"text":"'+data.dic3.text+'",'
+                    +'"id":"'+data.dic3.id+'",'
+                    +'"type":"'+data.dic3.type+'",'
+                    +'"userId":"'+data.dic3.userId+'"},'
+
+                    +'{"text":"'+data.dic4.image+'",'
+                    +'"id":"'+data.dic4.id+'",'
+                    +'"type":"'+data.dic4.type+'",'
+                    +'"userId":"'+data.dic4.userId+'"},'
+
+                    +'{"text":"'+data.dic5.image+'",'
+                    +'"id":"'+data.dic5.id+'",'
+                    +'"type":"'+data.dic5.type+'",'
+                    +'"userId":"'+data.dic5.userId+'"},'
+
+                    +'{"text":"'+data.dic6.image+'",'
+                    +'"id":"'+data.dic6.id+'",'
+                    +'"type":"'+data.dic6.type+'",'
+                    +'"userId":"'+data.dic6.userId+'"},'
+
+                    +'{"image":"'+data.dic7.image+'",'
+                    +'"id":"'+data.dic7.id+'",'
+                    +'"type":"'+data.dic7.type+'",'
+                    +'"userId":"'+data.dic7.userId+'"},'
+
+                    +'{"correctId":"'+data.dic8.correctId+'",'
+                    +'"image":"'+data.dic8.image+'",'
+                    +'"text":"'+data.dic8.text+'",'
+                    +'"id":"'+data.dic8.id+'",'
+                    +'"type":"'+data.dic8.type+'",'
+                    +'"userId":"'+data.dic8.userId+'"},'
+
+                    +'{"correctId":"'+data.dic9.correctId+'",'
+                    +'"image":"'+data.dic9.image+'",'
+                    +'"text":"'+data.dic9.text+'",'
+                    +'"id":"'+data.dic9.id+'",'
+                    +'"type":"'+data.dic9.type+'",'
+                    +'"userId":"'+data.dic9.userId+'"},'
+
+                    +'{"image":"'+data.dic10.text+'",'
+                    +'"id":"'+data.dic10.id+'",'
+                    +'"type":"'+data.dic10.type+'",'
+                    +'"userId":"'+data.dic10.userId+'"},'
+
+                    +'{"image":"'+data.dic11.text+'",'
+                    +'"id":"'+data.dic11.id+'",'
+                    +'"type":"'+data.dic11.type+'",'
+                    +'"userId":"'+data.dic11.userId+'"},'
+
+                    +'{"image":"'+data.dic12.text+'",'
+                    +'"id":"'+data.dic12.id+'",'
+                    +'"type":"'+data.dic12.type+'",'
+                    +'"userId":"'+data.dic12.userId+'"},'
+
+                    +'{"id":"'+data.dic13.id+'",'
+                    +'"type":"'+data.dic13.type+'",'
+                    +'"userId":"'+data.dic13.userId+'"},'
+
+                    +'{"id":"'+data.dic14.id+'",'
+                    +'"text":"'+data.dic14.image+'",'
+                    +'"type":"'+data.dic14.type+'",'
+                    +'"userId":"'+data.dic14.userId+'"},'
+
+                    +'{"id":"'+data.dic15.id+'",'
+                    +'"text":"'+data.dic15.image+'",'
+                    +'"type":"'+data.dic15.type+'",'
+                    +'"userId":"'+data.dic15.userId+'"},'
+
+                    +'{"id":"'+data.dic16.id+'",'
+                    +'"text":"'+data.dic16.image+'",'
+                    +'"type":"'+data.dic16.type+'",'
+                    +'"userId":"'+data.dic16.userId+'"},'
+
+                    +'{"id":"'+data.dic17.id+'",'
+                    +'"text":"'+data.dic17.image+'",'
+                    +'"type":"'+data.dic17.type+'",'
+                    +'"userId":"'+data.dic17.userId+'"},'
+
+                    +']');
+              }
+
+    　　　　})
+
+      });
+});
+
+</script>
+</body>
+</html>
