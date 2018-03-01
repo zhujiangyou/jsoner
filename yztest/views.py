@@ -616,13 +616,14 @@ def shuomingti(request):
             "type": 4001,
             "userId": 0,
         },
-        #问题一回答一
+        #问题一正确回答
         'dic4':{
             "id": 4,
             "type": 3004,
             "text": "",
             "userId": 0,
-            "parentId":3
+            "parentId":3,
+            "correctId":3
         },
         #问题一回答二
         'dic5':{
@@ -630,7 +631,8 @@ def shuomingti(request):
             "type": 3004,
             "text": "",
             "userId": 0,
-            "parentId":3
+            "parentId":3,
+            "correctId":0
         },
         #问题一回答一的下一步说明
         'dic6':{
@@ -662,21 +664,23 @@ def shuomingti(request):
             "type": 4001,
             "userId": 0,
         },
-        #问题二回答一
+        #问题二正确回答
         'dic10':{
             "id": 10,
             "text": "",
             "type": 3004,
             "userId": 0,
-            "parentId":9
+            "parentId":9,
+            "correctId":9
         },
-        #问题二回答二
+        #问题二错误回答
         'dic11':{
             "id": 11,
             "text": "",
             "type": 3004,
             "userId": 0,
-            "parentId":9
+            "parentId":9，
+            "correctId":0
         },
         #问题二回答一的下一步说明
         'dic12':{
