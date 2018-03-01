@@ -32,7 +32,7 @@ def yuanliti(request):
         'dic3':{
             "id": 3,
             "text": "",
-            "type": 30011,
+            "type": 1002,
             "userId": 0,
             "block":2,
             "index":2,
@@ -41,7 +41,7 @@ def yuanliti(request):
         'dic4':{
             "id": 4,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":3,
@@ -50,7 +50,7 @@ def yuanliti(request):
         'dic5':{
             "id": 5,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":4,
@@ -59,7 +59,7 @@ def yuanliti(request):
         'dic6':{
             "id": 6,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":5,
@@ -68,7 +68,7 @@ def yuanliti(request):
         'dic7':{
             "id": 7,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":6,
@@ -79,7 +79,7 @@ def yuanliti(request):
             "id": 8,
             "image": "",
             "text": "",
-            "type": 30013,
+            "type": 3001,
             "userId": 0,
             "block":3,
             "index":1,
@@ -90,7 +90,7 @@ def yuanliti(request):
             "id": 9,
             "image": "",
             "text": "",
-            "type": 30014,
+            "type": 3001,
             "userId": 0,
             "block":3,
             "index":2,
@@ -101,13 +101,13 @@ def yuanliti(request):
             "text": "",
             "type": 6001,
             "userId": 0,
-            "block":5,
+            "block":8,
         },
         #解释／知识锦囊
         'dic11':{
             "id": 11,
             "text": "",
-            "type": 6002,
+            "type": 1001,
             "userId": 0,
             "block":4,
             "index":1,
@@ -116,7 +116,7 @@ def yuanliti(request):
         'dic12':{
             "id": 12,
             "text": "",
-            "type": 30012,
+            "type": 1003,
             "userId": 0,
             "block":4,
             "index":2,
@@ -133,7 +133,7 @@ def yuanliti(request):
         'dic14':{
             "id": 14,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":1,
@@ -142,7 +142,7 @@ def yuanliti(request):
         'dic15':{
             "id": 15,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":2,
@@ -151,7 +151,7 @@ def yuanliti(request):
         'dic16':{
             "id": 16,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":3,
@@ -160,7 +160,7 @@ def yuanliti(request):
         'dic17':{
             "id": 17,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":4,
@@ -258,14 +258,14 @@ def anliti(request):
             "text": "",
             "block":2,
             "index":2,
-            "type": 30011,
+            "type": 1002,
             "userId": 0,
         },
         #正文图片1
         'dic4':{
             "id": 4,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "block":2,
             "index":3,
             "userId": 0,
@@ -276,7 +276,7 @@ def anliti(request):
             "image": "",
             "block":2,
             "index":4,
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
         },
         #正文图片3
@@ -285,7 +285,7 @@ def anliti(request):
             "block":2,
             "index":5,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
         },
         #正文图片4
@@ -294,7 +294,7 @@ def anliti(request):
             "block":2,
             "index":6,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
         },
         #正确答案
@@ -305,7 +305,7 @@ def anliti(request):
             "text": "",
             "block":3,
             "index":1,
-            "type": 30013,
+            "type": 3002,
             "userId": 0,
         },
         #错误答案
@@ -316,7 +316,7 @@ def anliti(request):
             "index":2,
             "image": "",
             "text": "",
-            "type": 30014,
+            "type": 3002,
             "userId": 0,
         },
         #错误答案
@@ -327,7 +327,7 @@ def anliti(request):
             "index":3,
             "image": "",
             "text": "",
-            "type": 30014,
+            "type": 3002,
             "userId": 0,
         },
         #错误答案
@@ -338,14 +338,14 @@ def anliti(request):
             "index":4,
             "image": "",
             "text": "",
-            "type": 30014,
+            "type": 3002,
             "userId": 0,
         },
         #过渡段/介绍段
         'dic12':{
             "id": 12,
             "text": "",
-            "block":"5",
+            "block":"8",
             "type": 6001,
             "userId": 0,
         },
@@ -353,7 +353,7 @@ def anliti(request):
         'dic13':{
             "id": 13,
             "text": "",
-            "type": 6001,
+            "type": 1001,
             "userId": 0,
             "block":4,
             "index":1,
@@ -362,7 +362,7 @@ def anliti(request):
         'dic14':{
             "id": 14,
             "text": "",
-            "type": 30012,
+            "type": 1003,
             "userId": 0,
             "block":4,
             "index":2,
@@ -371,7 +371,7 @@ def anliti(request):
         'dic15':{
             "id": 15,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":1,
@@ -380,7 +380,7 @@ def anliti(request):
         'dic16':{
             "id": 16,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":2,
@@ -389,7 +389,7 @@ def anliti(request):
         'dic17':{
             "id": 17,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":3,
@@ -398,7 +398,7 @@ def anliti(request):
         'dic18':{
             "id": 18,
             "image": "",
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
             "block":6,
             "index":4,
@@ -500,7 +500,7 @@ def dapeiti(request):
         'dic3':{
             "id": 3,
             "text": "",
-            "type": 30011,
+            "type": 1002,
             "userId": 0,
             "block":2,
             "index":2,
@@ -509,7 +509,7 @@ def dapeiti(request):
         'dic4':{
             "id": 4,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":3,
@@ -518,7 +518,7 @@ def dapeiti(request):
         'dic5':{
             "id": 5,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":4,
@@ -527,7 +527,7 @@ def dapeiti(request):
         'dic6':{
             "id": 6,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":5,
@@ -536,7 +536,7 @@ def dapeiti(request):
         'dic7':{
             "id": 7,
             "image": "",
-            "type": 20011,
+            "type": 2001,
             "userId": 0,
             "block":2,
             "index":6,
@@ -667,13 +667,13 @@ def dapeiti(request):
             "text": "",
             "type": 6001,
             "userId": 0,
-            "block":5,
+            "block":8,
         },
         #解释／知识锦囊
         'dic21':{
             "id": 21,
             "text": "",
-            "type": 6001,
+            "type": 1001,
             "userId": 0,
             "block":1,
             "index":1,
@@ -684,7 +684,7 @@ def dapeiti(request):
             "text": "",
             "block":1,
             "index":2,
-            "type": 30012,
+            "type": 1003,
             "userId": 0,
         },
         #解释图片1
@@ -693,7 +693,7 @@ def dapeiti(request):
             "image": "",
             "block":1,
             "index":3,
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
         },
         #解释图片2
@@ -702,7 +702,7 @@ def dapeiti(request):
             "image": "",
             "block":1,
             "index":4,
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
         },
         #解释图片3
@@ -711,7 +711,7 @@ def dapeiti(request):
             "image": "",
             "block":1,
             "index":5,
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
         },
         #解释图片4
@@ -720,7 +720,7 @@ def dapeiti(request):
             "image": "",
             "block":1,
             "index":6,
-            "type": 20012,
+            "type": 2001,
             "userId": 0,
         },
         #问题图片1
