@@ -24,6 +24,8 @@ def yuanliti(request):
             "text": "",
             "type": 1001,
             "userId": 0,
+            "block":2,
+            "index":1,
         },
         #正文加粗
         'dic3':{
@@ -31,6 +33,8 @@ def yuanliti(request):
             "text": "",
             "type": 30011,
             "userId": 0,
+            "block":2,
+            "index":2,
         },
         #正文图片1
         'dic4':{
@@ -38,6 +42,8 @@ def yuanliti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":3,
         },
         #正文图片2
         'dic5':{
@@ -45,6 +51,8 @@ def yuanliti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":4,
         },
         #正文图片3
         'dic6':{
@@ -52,6 +60,8 @@ def yuanliti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":5,
         },
         #正文图片4
         'dic7':{
@@ -59,6 +69,8 @@ def yuanliti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":6,
         },
         #正确答案
         'dic8':{
@@ -68,6 +80,8 @@ def yuanliti(request):
             "text": "",
             "type": 30013,
             "userId": 0,
+            "block":3,
+            "index":1,
         },
         #错误答案
         'dic9':{
@@ -77,6 +91,8 @@ def yuanliti(request):
             "text": "",
             "type": 30014,
             "userId": 0,
+            "block":3,
+            "index":2,
         },
         #过渡段/介绍段
         'dic10':{
@@ -84,6 +100,7 @@ def yuanliti(request):
             "text": "",
             "type": 6001,
             "userId": 0,
+            "block":5,
         },
         #解释／知识锦囊
         'dic11':{
@@ -91,6 +108,8 @@ def yuanliti(request):
             "text": "",
             "type": 6002,
             "userId": 0,
+            "block":4,
+            "index":1,
         },
         #解释加粗
         'dic12':{
@@ -98,12 +117,16 @@ def yuanliti(request):
             "text": "",
             "type": 30012,
             "userId": 0,
+            "block":4,
+            "index":2,
         },
 
         'dic13':{
             "id": 13,
             "type": 5001,
             "userId": 0,
+            "block":2,
+            "index":7,
         },
         #解释图片1
         'dic14':{
@@ -111,6 +134,8 @@ def yuanliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":1,
         },
         #解释图片2
         'dic15':{
@@ -118,6 +143,8 @@ def yuanliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":2,
         },
         #解释图片3
         'dic16':{
@@ -125,6 +152,8 @@ def yuanliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":3,
         },
         #解释图片4
         'dic17':{
@@ -132,7 +161,38 @@ def yuanliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":4,
         },
+        #问题图片1
+        'dic18':{
+            "id":18,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":1
+        },
+        #问题图片2
+        'dic19':{
+            "id":19,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":2
+        },
+        #问题图片3
+        'dic20':{
+            "id":20,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":3
+        }
+
+
     }
 
 
@@ -163,6 +223,10 @@ def yuanliti(request):
             dic['dic15']['image'] = request.POST.get('image6','')
             dic['dic16']['image'] = request.POST.get('image7','')
             dic['dic17']['image'] = request.POST.get('image8','')
+
+            dic['dic18']['image'] = request.POST.get('qimage1','')
+            dic['dic19']['image'] = request.POST.get('qimage2','')
+            dic['dic20']['image'] = request.POST.get('qimage3','')
             return HttpResponse(json.dumps(dic,ensure_ascii=False))
 
     return render(request, 'yuanliti.html')
@@ -182,12 +246,16 @@ def anliti(request):
             "id": 2,
             "text": "",
             "type": 1001,
+            "block":2,
+            "index":1,
             "userId": 0,
         },
         #正文加粗
         'dic3':{
             "id": 3,
             "text": "",
+            "block":2,
+            "index":2,
             "type": 30011,
             "userId": 0,
         },
@@ -196,18 +264,24 @@ def anliti(request):
             "id": 4,
             "image": "",
             "type": 20011,
+            "block":2,
+            "index":3,
             "userId": 0,
         },
         #正文图片2
         'dic5':{
             "id": 5,
             "image": "",
+            "block":2,
+            "index":4,
             "type": 20011,
             "userId": 0,
         },
         #正文图片3
         'dic6':{
             "id": 6,
+            "block":2,
+            "index":5,
             "image": "",
             "type": 20011,
             "userId": 0,
@@ -215,6 +289,8 @@ def anliti(request):
         #正文图片4
         'dic7':{
             "id": 7,
+            "block":2,
+            "index":6,
             "image": "",
             "type": 20011,
             "userId": 0,
@@ -225,6 +301,8 @@ def anliti(request):
             "id": 8,
             "image": "",
             "text": "",
+            "block":3,
+            "index":1,
             "type": 30013,
             "userId": 0,
         },
@@ -232,6 +310,8 @@ def anliti(request):
         'dic9':{
             "correctId": 0,
             "id": 9,
+            "block":3,
+            "index":2,
             "image": "",
             "text": "",
             "type": 30014,
@@ -241,6 +321,8 @@ def anliti(request):
         'dic10':{
             "correctId": 0,
             "id": 10,
+            "block":3,
+            "index":3,
             "image": "",
             "text": "",
             "type": 30014,
@@ -250,6 +332,8 @@ def anliti(request):
         'dic11':{
             "correctId": 0,
             "id": 11,
+            "block":3,
+            "index":4,
             "image": "",
             "text": "",
             "type": 30014,
@@ -259,6 +343,7 @@ def anliti(request):
         'dic12':{
             "id": 12,
             "text": "",
+            "block":"5",
             "type": 6001,
             "userId": 0,
         },
@@ -268,6 +353,8 @@ def anliti(request):
             "text": "",
             "type": 6001,
             "userId": 0,
+            "block":4,
+            "index":1,
         },
         #解释加粗
         'dic14':{
@@ -275,6 +362,8 @@ def anliti(request):
             "text": "",
             "type": 30012,
             "userId": 0,
+            "block":4,
+            "index":2,
         },
         #解释图片1
         'dic15':{
@@ -282,6 +371,8 @@ def anliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":1,
         },
         #解释图片2
         'dic16':{
@@ -289,6 +380,8 @@ def anliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":2,
         },
         #解释图片3
         'dic17':{
@@ -296,6 +389,8 @@ def anliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":3,
         },
         #解释图片4
         'dic18':{
@@ -303,6 +398,35 @@ def anliti(request):
             "image": "",
             "type": 20012,
             "userId": 0,
+            "block":6,
+            "index":4,
+        },
+        #问题图片1
+        'dic19':{
+            "id":19,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":1,
+        },
+        #问题图片2
+        'dic20':{
+            "id":20,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":2,
+        },
+        #问题图片3
+        'dic21':{
+            "id":21,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":3,
         }
 
     }
@@ -337,10 +461,14 @@ def anliti(request):
             dic['dic13']['text'] = request.POST.get('know','')
             dic['dic14']['text'] = request.POST.get('bold2','')
 
-            dic['dic18']['image'] = request.POST.get('image8','')
             dic['dic15']['image'] = request.POST.get('image5','')
             dic['dic16']['image'] = request.POST.get('image6','')
             dic['dic17']['image'] = request.POST.get('image7','')
+            dic['dic18']['image'] = request.POST.get('image8','')
+
+            dic['dic19']['image'] = request.POST.get('qimage1','')
+            dic['dic20']['image'] = request.POST.get('qimage2','')
+            dic['dic21']['image'] = request.POST.get('qimage3','')
 
             return HttpResponse(json.dumps(dic,ensure_ascii=False))
 
@@ -362,6 +490,8 @@ def dapeiti(request):
             "text": "",
             "type": 1001,
             "userId": 0,
+            "block":2,
+            "index":1,
         },
         #正文加粗
         'dic3':{
@@ -369,6 +499,8 @@ def dapeiti(request):
             "text": "",
             "type": 30011,
             "userId": 0,
+            "block":2,
+            "index":2,
         },
         #正文图片1
         'dic4':{
@@ -376,6 +508,8 @@ def dapeiti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":3,
         },
         #正文图片2
         'dic5':{
@@ -383,6 +517,8 @@ def dapeiti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":4,
         },
         #正文图片3
         'dic6':{
@@ -390,6 +526,8 @@ def dapeiti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":5,
         },
         #正文图片4
         'dic7':{
@@ -397,6 +535,8 @@ def dapeiti(request):
             "image": "",
             "type": 20011,
             "userId": 0,
+            "block":2,
+            "index":6,
         },
         #题目一
         'dic8':{
@@ -406,6 +546,8 @@ def dapeiti(request):
             "text": "",
             "type": 3003,
             "userId": 0,
+            "block":2,
+            "index":7,
         },
         #题目二
         'dic9':{
@@ -415,6 +557,8 @@ def dapeiti(request):
             "text": "",
             "type": 3003,
             "userId": 0,
+            "block":2,
+            "index":8,
         },
         #题目三
         'dic10':{
@@ -424,6 +568,8 @@ def dapeiti(request):
             "text": "",
             "type": 3003,
             "userId": 0,
+            "block":2,
+            "index":9,
         },
         #题目四
         'dic11':{
@@ -433,6 +579,8 @@ def dapeiti(request):
             "text": "",
             "type": 3003,
             "userId": 0,
+            "block":2,
+            "index":10,
         },
         #题目五
         'dic12':{
@@ -442,6 +590,8 @@ def dapeiti(request):
             "text": "",
             "type": 3003,
             "userId": 0,
+            "block":2,
+            "index":11,
         },
         #题目六
         'dic13':{
@@ -451,6 +601,8 @@ def dapeiti(request):
             "text": "",
             "type": 3003,
             "userId": 0,
+            "block":2,
+            "index":12,
         },
         #题目一答案
         'dic14':{
@@ -458,6 +610,8 @@ def dapeiti(request):
             "text": "",
             "type": 3001,
             "userId": 0,
+            "block":3,
+            "index":1,
         },
         #题目二答案
         'dic15':{
@@ -465,6 +619,8 @@ def dapeiti(request):
             "text": "",
             "type": 3001,
             "userId": 0,
+            "block":3,
+            "index":2,
         },
         #题目三答案
         'dic16':{
@@ -472,6 +628,8 @@ def dapeiti(request):
             "text": "",
             "type": 3001,
             "userId": 0,
+            "block":3,
+            "index":3,
         },
         #题目四答案
         'dic17':{
@@ -479,6 +637,8 @@ def dapeiti(request):
             "text": "",
             "type": 3001,
             "userId": 0,
+            "block":3,
+            "index":4,
         },
         #题目五答案
         'dic18':{
@@ -486,6 +646,8 @@ def dapeiti(request):
             "text": "",
             "type": 3001,
             "userId": 0,
+            "block":3,
+            "index":5,
         },
         #题目六答案
         'dic19':{
@@ -493,6 +655,8 @@ def dapeiti(request):
             "text": "",
             "type": 3001,
             "userId": 0,
+            "block":3,
+            "index":6,
         },
         #过渡段/介绍段
         'dic20':{
@@ -500,6 +664,7 @@ def dapeiti(request):
             "text": "",
             "type": 6001,
             "userId": 0,
+            "block":5,
         },
         #解释／知识锦囊
         'dic21':{
@@ -507,11 +672,15 @@ def dapeiti(request):
             "text": "",
             "type": 6001,
             "userId": 0,
+            "block":1,
+            "index":1,
         },
         #解释加粗
         'dic22':{
             "id": 22,
             "text": "",
+            "block":1,
+            "index":2,
             "type": 30012,
             "userId": 0,
         },
@@ -519,6 +688,8 @@ def dapeiti(request):
         'dic23':{
             "id": 23,
             "image": "",
+            "block":1,
+            "index":3,
             "type": 20012,
             "userId": 0,
         },
@@ -526,6 +697,8 @@ def dapeiti(request):
         'dic24':{
             "id": 24,
             "image": "",
+            "block":1,
+            "index":4,
             "type": 20012,
             "userId": 0,
         },
@@ -533,6 +706,8 @@ def dapeiti(request):
         'dic25':{
             "id": 25,
             "image": "",
+            "block":1,
+            "index":5,
             "type": 20012,
             "userId": 0,
         },
@@ -540,8 +715,37 @@ def dapeiti(request):
         'dic26':{
             "id": 26,
             "image": "",
+            "block":1,
+            "index":6,
             "type": 20012,
             "userId": 0,
+        },
+        #问题图片1
+        'dic27':{
+            "id":27,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":1,
+        },
+        #问题图片2
+        'dic28':{
+            "id":28,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":2,
+        },
+        #问题图片3
+        'dic29':{
+            "id":29,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":3,
         }
 
     }
@@ -589,6 +793,10 @@ def dapeiti(request):
             dic['dic25']['image'] = request.POST.get('image7','')
             dic['dic26']['image'] = request.POST.get('image8','')
 
+            dic['dic27']['image'] = request.POST.get('qimage1','')
+            dic['dic28']['image'] = request.POST.get('qimage2','')
+            dic['dic29']['image'] = request.POST.get('qimage3','')
+
             return HttpResponse(json.dumps(dic,ensure_ascii=False))
 
     return render(request, 'dapeiti.html')
@@ -608,6 +816,8 @@ def shuomingti(request):
             "text": "",
             "type": 4001,
             "userId": 0,
+            "block":7,
+            "index":1,
         },
         #问题一
         'dic3':{
@@ -615,6 +825,8 @@ def shuomingti(request):
             "text": "",
             "type": 4001,
             "userId": 0,
+            "block":7,
+            "index":2,
         },
         #问题一正确回答
         'dic4':{
@@ -623,7 +835,9 @@ def shuomingti(request):
             "text": "",
             "userId": 0,
             "parentId":3,
-            "correctId":3
+            "correctId":3,
+            "block":7,
+            "index":3,
         },
         #问题一回答二
         'dic5':{
@@ -632,7 +846,9 @@ def shuomingti(request):
             "text": "",
             "userId": 0,
             "parentId":3,
-            "correctId":0
+            "correctId":0,
+            "block":7,
+            "index":4,
         },
         #问题一回答一的下一步说明
         'dic6':{
@@ -640,7 +856,9 @@ def shuomingti(request):
             "type": 4001,
             "text": "",
             "userId": 0,
-            "parentId":4
+            "parentId":4,
+            "block":7,
+            "index":5,
         },
         #问题一回答二的下一步说明
         'dic7':{
@@ -648,7 +866,9 @@ def shuomingti(request):
             "type": 4001,
             "text": "",
             "userId": 0,
-            "parentId":5
+            "parentId":5,
+            "block":7,
+            "index":6,
         },
         #第二个对话
         'dic8':{
@@ -656,6 +876,8 @@ def shuomingti(request):
             "text": "",
             "type": 4001,
             "userId": 0,
+            "block":7,
+            "index":7,
         },
         #问题二
         'dic9':{
@@ -663,6 +885,8 @@ def shuomingti(request):
             "text": "",
             "type": 4001,
             "userId": 0,
+            "block":7,
+            "index":8,
         },
         #问题二正确回答
         'dic10':{
@@ -670,6 +894,8 @@ def shuomingti(request):
             "text": "",
             "type": 3004,
             "userId": 0,
+            "block":7,
+            "index":9,
             "parentId":9,
             "correctId":9
         },
@@ -679,7 +905,9 @@ def shuomingti(request):
             "text": "",
             "type": 3004,
             "userId": 0,
-            "parentId":9，
+            "block":7,
+            "index":10,
+            "parentId":9,
             "correctId":0
         },
         #问题二回答一的下一步说明
@@ -687,6 +915,8 @@ def shuomingti(request):
             "id": 12,
             "text": "",
             "type": 4001,
+            "block":7,
+            "index":11,
             "userId": 0,
             "parentId":10
         },
@@ -694,6 +924,8 @@ def shuomingti(request):
         'dic13':{
             "id": 13,
             "text": "",
+            "block":7,
+            "index":12,
             "type": 4001,
             "userId": 0,
             "parentId":11
@@ -702,6 +934,8 @@ def shuomingti(request):
         'dic14':{
             "id": 14,
             "text": "",
+            "block":7,
+            "index":13,
             "type": 4001,
             "userId": 0,
         },
@@ -733,6 +967,34 @@ def shuomingti(request):
             "type": 2001,
             "userId": 0,
         },
+        #问题图片1
+        'dic19':{
+            "id":19,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":1,
+        },
+        #问题图片2
+        'dic20':{
+            "id":20,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":2,
+        },
+        #问题图片3
+        'dic21':{
+            "id":21,
+            "image":"",
+            "type":2001,
+            "userId":0,
+            "block":1,
+            "index":3,
+
+        }
 
     }
 
@@ -778,6 +1040,10 @@ def shuomingti(request):
             dic['dic16']['image'] = request.POST.get('image2','')
             dic['dic17']['image'] = request.POST.get('image2','')
             dic['dic18']['image'] = request.POST.get('image3','')
+
+            dic['dic19']['image'] = request.POST.get('qimage1','')
+            dic['dic20']['image'] = request.POST.get('qimage2','')
+            dic['dic21']['image'] = request.POST.get('qimage3','')
 
             return HttpResponse(json.dumps(dic,ensure_ascii=False))
 
