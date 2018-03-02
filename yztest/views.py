@@ -13,7 +13,7 @@ def yuanliti(request):
     dic = {
         #标题
         'dic1':{
-            "block":7,
+            "block":2,
             "id": 1,
             "text": "",
             "type": 1002,
@@ -32,7 +32,7 @@ def yuanliti(request):
         'dic3':{
             "id": 3,
             "text": "",
-            "type": 1002,
+            "type": 1003,
             "userId": 0,
             "block":2,
             "index":2,
@@ -237,7 +237,7 @@ def anliti(request):
     dic = {
         #标题
         'dic1':{
-            "block":7,
+            "block":2,
             "id": 1,
             "text": "",
             "type": 1002,
@@ -433,6 +433,7 @@ def anliti(request):
 
     }
 
+
     if request.method == "POST":
 
         action = request.POST.get('action', '')
@@ -481,7 +482,7 @@ def dapeiti(request):
     dic = {
         #标题
         'dic1':{
-            "block":7,
+            "block":2,
             "id": 1,
             "text": "",
             "type": 1002,
@@ -543,72 +544,67 @@ def dapeiti(request):
         },
         #题目一
         'dic8':{
-            "correctId": 14,
             "id": 8,
             "image": "",
             "text": "",
             "type": 3003,
             "userId": 0,
-            "block":2,
+            "block":3,
             "index":7,
         },
         #题目二
         'dic9':{
-            "correctId": 15,
             "id": 9,
             "image": "",
             "text": "",
             "type": 3003,
             "userId": 0,
-            "block":2,
+            "block":3,
             "index":8,
         },
         #题目三
         'dic10':{
-            "correctId": 16,
             "id": 10,
             "image": "",
             "text": "",
             "type": 3003,
             "userId": 0,
-            "block":2,
+            "block":3,
             "index":9,
         },
         #题目四
         'dic11':{
-            "correctId": 17,
             "id": 11,
             "image": "",
             "text": "",
             "type": 3003,
             "userId": 0,
-            "block":2,
+            "block":3,
             "index":10,
         },
         #题目五
         'dic12':{
-            "correctId": 18,
             "id": 12,
             "image": "",
             "text": "",
             "type": 3003,
             "userId": 0,
-            "block":2,
+            "block":3,
             "index":11,
         },
         #题目六
         'dic13':{
-            "correctId": 19,
             "id": 13,
             "image": "",
             "text": "",
             "type": 3003,
             "userId": 0,
-            "block":2,
+            "block":3,
             "index":12,
         },
         #题目一答案
         'dic14':{
+            "correctId": 8,
             "id": 14,
             "text": "",
             "type": 3001,
@@ -618,6 +614,7 @@ def dapeiti(request):
         },
         #题目二答案
         'dic15':{
+            "correctId": 9,
             "id": 15,
             "text": "",
             "type": 3001,
@@ -627,6 +624,7 @@ def dapeiti(request):
         },
         #题目三答案
         'dic16':{
+            "correctId": 10,
             "id": 16,
             "text": "",
             "type": 3001,
@@ -636,6 +634,7 @@ def dapeiti(request):
         },
         #题目四答案
         'dic17':{
+            "correctId": 11,
             "id": 17,
             "text": "",
             "type": 3001,
@@ -645,6 +644,7 @@ def dapeiti(request):
         },
         #题目五答案
         'dic18':{
+            "correctId": 12,
             "id": 18,
             "text": "",
             "type": 3001,
@@ -654,6 +654,7 @@ def dapeiti(request):
         },
         #题目六答案
         'dic19':{
+            "correctId": 13,
             "id": 19,
             "text": "",
             "type": 3001,
@@ -808,7 +809,7 @@ def shuomingti(request):
     dic = {
         #标题
         'dic1':{
-            "block":7,
+            "block":2,
             "id": 1,
             "text": "",
             "type": 1002,

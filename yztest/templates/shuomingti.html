@@ -111,8 +111,9 @@
           },
     　　　　success:function(data){
                 // alert(data.title)
-                $("#tarea").val(
-                    '['+
+
+                var newJson = [];
+                var txt = '['+
                     '{"text":"'+data.dic1.text+'",'
                     +'"id":'+data.dic1.id+','
                     +'"block":'+data.dic1.block+','
@@ -261,10 +262,27 @@
                     +'{"image":"'+data.dic18.image+'",'
                     +'"id":'+data.dic18.id+','
                     +'"type":'+data.dic18.type+','
-                    +'"userId":"'+data.dic18.userId+'}'
+                    +'"userId":'+data.dic18.userId+'}'
 
 
-                    +']');
+                    +']';
+                console.info(txt);
+                var context = '';
+                var json = $.parseJSON( txt );
+                for(var i=0;i<json.length;i++){
+                  var ele = json[i];
+                  if(ele.text==''){
+                    continue;
+                  }
+
+                  newJson.push(ele);
+                }
+                console.info(JSON.stringify(newJson));
+
+
+                $("#tarea").val(
+                    JSON.stringify(newJson)
+                    );
               }
 
     　　　　})

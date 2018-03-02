@@ -25,7 +25,7 @@
         <tr><input  id="qimage3" type="text" placeholder="第三张题目图片"></tr><br>
 
         <tr><input id="content" type="text" placeholder="搭配题所有正文"></tr><br>
-        <tr><input type="text" id="bold1"  placeholder="正文中需要加粗的所有地方，每个用|分开录入"></tr><br>
+        <!-- <tr><input type="text" id="bold1"  placeholder="正文中需要加粗的所有地方，每个用|分开录入"></tr><br> -->
 
         <tr><input id="image1" type="text" placeholder="正文图片地址1"></tr><br>
         <tr><input id="image2" type="text" placeholder="正文图片地址2"></tr><br>
@@ -167,8 +167,9 @@
           },
     　　　　success:function(data){
                 // alert(data.title)
-                $("#tarea").val(
-                    '['+
+
+                var newJson = [];
+                var txt = '['+
                     '{"text":"'+data.dic1.text+'",'
                     +'"id":'+data.dic1.id+','
                     +'"block":'+data.dic1.block+','
@@ -203,12 +204,12 @@
                     +'"type":'+data.dic2.type+','
                     +'"userId":'+data.dic2.userId+'},'
 
-                    +'{"text":"'+data.dic3.text+'",'
-                    +'"id":'+data.dic3.id+','
-                    +'"block":'+data.dic3.block+','
-                    +'"index":'+data.dic3.index+','
-                    +'"type":'+data.dic3.type+','
-                    +'"userId":'+data.dic3.userId+'},'
+                    // +'{"text":"'+data.dic3.text+'",'
+                    // +'"id":'+data.dic3.id+','
+                    // +'"block":'+data.dic3.block+','
+                    // +'"index":'+data.dic3.index+','
+                    // +'"type":'+data.dic3.type+','
+                    // +'"userId":'+data.dic3.userId+'},'
 
                     +'{"image":"'+data.dic4.image+'",'
                     +'"id":'+data.dic4.id+','
@@ -382,7 +383,72 @@
                     +'"type":'+data.dic26.type+','
                     +'"userId":'+data.dic26.userId+'}'
 
-                    +']');
+                    +']';
+                console.info(txt);
+                var context = '';
+                var json = $.parseJSON(txt);
+                for(var i=0;i<json.length;i++){
+                  var ele = json[i];
+                  if(ele.text==''){
+                    continue;
+                  }
+                  if(ele.type==1001){
+        var index = 1;
+        context = ele.text;
+        var eles = context.split('__');
+          for(var j=0;j<eles.length;j++){
+            var boldText = eles[j].split('||');
+            for(var z=0;z<boldText.length;z++){
+              if(z == 0 && boldText[0] != ""){
+
+                var a ={
+                   'type':1001,
+                   'block':2,
+                   'index':index++,
+                   'text':boldText[0]
+                };
+                newJson.push(a);
+              }
+              if(z != 0 && z%2 == 0 && boldText[z] != ""){
+                  var a ={
+                    'type':1001,
+                   'block':2,
+                   'index':index++,
+                   'text':boldText[z]
+                  };
+                newJson.push(a);
+                }
+              if(z != 0 && z%2 == 1 && boldText[z] != ""){
+                  var a ={
+                    'type':1003,
+                   'block':2,
+                   'index':index++,
+                   'text':boldText[z]
+                  };
+                  newJson.push(a);
+                }
+            }
+            if(j != eles.length-1){
+              var a ={
+                      'type':5001,
+                     'block':2,
+                     'index':index++,
+                     'id':100
+                    };
+                  newJson.push(a);
+                }
+          }
+          continue;
+        }
+                  newJson.push(ele);
+                }
+
+                console.info(JSON.stringify(newJson));
+
+
+                $("#tarea").val(
+                    JSON.stringify(newJson)
+                    );
               }
 
     　　　　})
