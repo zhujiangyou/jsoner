@@ -610,7 +610,7 @@ def dapeiti(request):
             "type": 3001,
             "userId": 0,
             "block":3,
-            "index":1,
+            "index":13,
         },
         #题目二答案
         'dic15':{
@@ -620,7 +620,7 @@ def dapeiti(request):
             "type": 3001,
             "userId": 0,
             "block":3,
-            "index":2,
+            "index":18,
         },
         #题目三答案
         'dic16':{
@@ -630,7 +630,7 @@ def dapeiti(request):
             "type": 3001,
             "userId": 0,
             "block":3,
-            "index":3,
+            "index":16,
         },
         #题目四答案
         'dic17':{
@@ -640,7 +640,7 @@ def dapeiti(request):
             "type": 3001,
             "userId": 0,
             "block":3,
-            "index":4,
+            "index":15,
         },
         #题目五答案
         'dic18':{
@@ -650,7 +650,7 @@ def dapeiti(request):
             "type": 3001,
             "userId": 0,
             "block":3,
-            "index":5,
+            "index":14,
         },
         #题目六答案
         'dic19':{
@@ -660,7 +660,7 @@ def dapeiti(request):
             "type": 3001,
             "userId": 0,
             "block":3,
-            "index":6,
+            "index":17,
         },
         #过渡段/介绍段
         'dic20':{

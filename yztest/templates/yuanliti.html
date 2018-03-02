@@ -19,34 +19,34 @@
 
 <div style="width: 50%;">
     <table>
-        <tr><input id="title" type="text" name="title" placeholder="填空题题目"></tr><br>
+        <tr>填空题题目<input id="title" type="text" name="title" placeholder="填空题题目"></tr><br>
 
-        <tr><input  id="qimage1" type="text" placeholder="第一张题目图片"></tr><br>
-        <tr><input  id="qimage2" type="text" placeholder="第二张题目图片"></tr><br>
-        <tr><input  id="qimage3" type="text" placeholder="第三张题目图片"></tr><br>
+        <tr>第一张题目图片<input  id="qimage1" type="text" placeholder="第一张题目图片"></tr><br>
+        <tr>第二张题目图片<input  id="qimage2" type="text" placeholder="第二张题目图片"></tr><br>
+        <tr>第三张题目图片<input  id="qimage3" type="text" placeholder="第三张题目图片"></tr><br>
 
-        <tr><input id="content" type="text" placeholder="填空题正文"></tr><br>
+        <tr>填空题正文<input id="content" type="text" placeholder="填空题正文" style="width: 1000px;height: 50px;"></tr>（++表示填空， ||与||中间的字加粗，文本换行用\r\n）<br>
         <!-- <tr><input type="text" id="bold1"  placeholder="正文中需要加粗的所有地方，每个用|分开录入"></tr><br> -->
 
-        <tr><input id="image1" type="text" placeholder="正文图片地址1"></tr><br>
-        <tr><input id="image2" type="text" placeholder="正文图片地址2"></tr><br>
-        <tr><input id="image3" type="text" placeholder="正文图片地址3"></tr><br>
-        <tr><input id="image4" type="text" placeholder="正文图片地址4"></tr><br>
+        <tr>正文图片地址1<input id="image1" type="text" placeholder="正文图片地址1"></tr><br>
+        <tr>正文图片地址2<input id="image2" type="text" placeholder="正文图片地址2"></tr><br>
+        <tr>正文图片地址3<input id="image3" type="text" placeholder="正文图片地址3"></tr><br>
+        <tr>正文图片地址4<input id="image4" type="text" placeholder="正文图片地址4"></tr><br>
 
-        <tr><input id="right" type="text" placeholder="正确答案文本"></tr><br>
-        <tr><input id="rightimage" type="text" placeholder="正确答案描述"></tr><br>
-        <tr><input id="error" type="text" placeholder="错误答案文本"></tr><br>
-        <tr><input id="errorimage" type="text" placeholder="错误答案描述"></tr><br>
+        <tr>正确答案文本<input id="right" type="text" placeholder="正确答案文本" ></tr><br>
+        <tr>正确答案描述<input id="rightimage" type="text" placeholder="正确答案描述"></tr><br>
+        <tr>错误答案文本<input id="error" type="text" placeholder="错误答案文本"></tr><br>
+        <tr>错误答案描述<input id="errorimage" type="text" placeholder="错误答案描述"></tr><br>
 
-        <tr><input id="intro" type="text" placeholder="过渡段／介绍段"></tr><br>
-        <tr><input id="know" type="text" placeholder="解释/知识锦囊"></tr><br>
-        <tr><input type="text" id="bold2" placeholder="解释／知识中需要加粗的所有地方，每个用|分开录入"></tr><br>
+        <tr>过渡段／介绍段<input id="intro" type="text" placeholder="过渡段／介绍段"></tr><br>
+        <tr>解释/知识锦囊<input id="know" type="text" placeholder="解释/知识锦囊"></tr><br>
+        <tr>解释／知识中需要加粗的所有地方，每个用|分开录入<input type="text" id="bold2" placeholder="解释／知识中需要加粗的所有地方，每个用|分开录入"></tr><br>
 
 
-        <tr><input id="image5" type="text" placeholder="解释图片地址1"></tr><br>
-        <tr><input id="image6" type="text" placeholder="解释图片地址2"></tr><br>
-        <tr><input id="image7" type="text" placeholder="解释图片地址3"></tr><br>
-        <tr><input id="image8" type="text" placeholder="解释图片地址4"></tr><br>
+        <tr>解释图片地址1<input id="image5" type="text" placeholder="解释图片地址1"></tr><br>
+        <tr>解释图片地址2<input id="image6" type="text" placeholder="解释图片地址2"></tr><br>
+        <tr>解释图片地址3<input id="image7" type="text" placeholder="解释图片地址3"></tr><br>
+        <tr>解释图片地址4<input id="image8" type="text" placeholder="解释图片地址4"></tr><br>
         <tr><button>生成json</button></tr>
     </table>
 </div>
@@ -288,7 +288,7 @@
                   if(ele.type==1001){
         var index = 1;
         context = ele.text;
-        var eles = context.split('__');
+        var eles = context.split('++');
           for(var j=0;j<eles.length;j++){
             var boldText = eles[j].split('||');
             for(var z=0;z<boldText.length;z++){
