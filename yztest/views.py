@@ -100,6 +100,7 @@ def yuanliti(request):
             "id": 10,
             "text": "",
             "type": 6001,
+            "index": 1,
             "userId": 0,
             "block":8,
         },
@@ -347,6 +348,7 @@ def anliti(request):
             "text": "",
             "block":"8",
             "type": 6001,
+            "index": 1,
             "userId": 0,
         },
         #解释／知识锦囊
@@ -667,6 +669,7 @@ def dapeiti(request):
             "id": 20,
             "text": "",
             "type": 6001,
+            "index": 1,
             "userId": 0,
             "block":8,
         },
