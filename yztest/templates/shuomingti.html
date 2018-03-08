@@ -18,7 +18,7 @@
 
 <div style="width: 50%;">
     <table>
-        <tr>说明题标题<input id="title" type="text" name="title" placeholder="说明题标题"></tr><br>
+        <tr>说明题标题<input id="title" type="text" name="title" ></tr><br>
 
         <tr>第一张题目图片<input  id="qimage1" type="text" ></tr><br>
         <tr>第二张题目图片<input  id="qimage2" type="text" ></tr><br>
@@ -216,7 +216,7 @@
                     +'"id":'+data.dic11.id+','
                     +'"block":'+data.dic11.block+','
                     +'"index":'+data.dic11.index+','
-                    +'"correctId":'+data.dic4.correctId+','
+                    +'"correctId":'+data.dic11.correctId+','
                     +'"type":'+data.dic11.type+','
                     +'"parentId":'+data.dic11.parentId+','
                     +'"userId":'+data.dic11.userId+'},'
@@ -274,6 +274,26 @@
                   if(ele.text==''){
                     continue;
                   }
+
+        //            if(ele.type==4001){
+        // var index = 1;
+        // context = ele.text;
+        // var eles = context.split('*');
+        //   for(var j=0;j<eles.length;j++){
+             
+
+        //         var a ={
+        //            'type':4001,
+        //            'block':2,
+        //            'index':index++,
+        //            'text':boldText[0]
+        //         };
+        //         newJson.push(a);
+             
+              
+        //     }
+        //     continue
+        // }
 
                   newJson.push(ele);
                 }

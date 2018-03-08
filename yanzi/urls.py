@@ -30,7 +30,9 @@ urlpatterns = [
 
     path('dapeiti/',yztest_views.dapeiti),
 
-    path('shuomingti/',yztest_views.shuomingti)
+    path('shuomingti/',yztest_views.shuomingti),
+
+    path('zongjie/', yztest_views.zongjie),
 
 
 ]

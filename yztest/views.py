@@ -117,7 +117,7 @@ def yuanliti(request):
         'dic12':{
             "id": 12,
             "text": "",
-            "type": 1003,
+            "type": 1001,
             "userId": 0,
             "block":4,
             "index":2,
@@ -364,7 +364,7 @@ def anliti(request):
         'dic14':{
             "id": 14,
             "text": "",
-            "type": 1003,
+            "type": 1001,
             "userId": 0,
             "block":4,
             "index":2,
@@ -688,7 +688,7 @@ def dapeiti(request):
             "text": "",
             "block":1,
             "index":2,
-            "type": 1003,
+            "type": 1001,
             "userId": 0,
         },
         #解释图片1
@@ -1056,3 +1056,7 @@ def shuomingti(request):
             return HttpResponse(json.dumps(dic,ensure_ascii=False))
 
     return render(request, 'shuomingti.html')
+
+def zongjie(request):
+    
+    return render(request, 'zongjie.html')
