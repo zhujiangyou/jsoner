@@ -1058,5 +1058,83 @@ def shuomingti(request):
     return render(request, 'shuomingti.html')
 
 def zongjie(request):
-    
+    dic = {
+        #标题
+        'dic1':{
+            "title":"",
+            "content": "",
+            "index": 1,
+         },
+
+         'dic2':{
+            "title":"",
+            "content": "",
+            "index": 2,
+         },
+
+         'dic3':{
+            "title":"",
+            "content": "",
+            "index": 3,
+         },
+
+         'dic4':{
+            "title":"",
+            "content": "",
+            "index": 4,
+         },
+
+         'dic5':{
+            "title":"",
+            "content": "",
+            "index": 5,
+         },
+
+         'dic6':{
+            "title":"",
+            "content": "",
+            "index": 6,
+         },
+
+         'dic7':{
+            "title":"",
+            "content": "",
+            "index": 7,
+         },
+
+         'dic8':{
+            "title":"",
+            "content": "",
+            "index": 8,
+         },
+    }
+    if request.method == "POST":
+
+        action = request.POST.get('action', '')
+        if action == 'zongjie':
+            dic['dic1']['title'] = request.POST.get('title1',''),
+            dic['dic1']['content'] = request.POST.get('content1',''),
+
+            dic['dic2']['title'] = request.POST.get('title2',''),
+            dic['dic2']['content'] = request.POST.get('content2',''),
+
+            dic['dic3']['title'] = request.POST.get('title3',''),
+            dic['dic3']['content'] = request.POST.get('content3',''),
+
+            dic['dic4']['title'] = request.POST.get('title4',''),
+            dic['dic4']['content'] = request.POST.get('content4',''),
+
+            dic['dic5']['title'] = request.POST.get('title5',''),
+            dic['dic5']['content'] = request.POST.get('content5',''),
+
+            dic['dic6']['title'] = request.POST.get('title6',''),
+            dic['dic6']['content'] = request.POST.get('content6',''),
+
+            dic['dic7']['title'] = request.POST.get('title7',''),
+            dic['dic7']['content'] = request.POST.get('content7',''),
+
+            dic['dic8']['title'] = request.POST.get('title8',''),
+            dic['dic8']['content'] = request.POST.get('content8',''),
+
+            return HttpResponse(json.dumps(dic,ensure_ascii=False))
     return render(request, 'zongjie.html')
