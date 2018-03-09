@@ -18,39 +18,244 @@
 
     <div style="width: 50%;">
     <table>
-        <tr>案例题题目<input id="title" type="text" name="title" ></tr><br>
+        <!-- <tr>案例题题目<input id="title" type="text" name="title" ></tr><br> -->
+        <tr>
+            <td>
+                案例题题目
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="title" type="text" name="title" >
+            </td>
+        </tr>
+        <!-- <tr>第一张题目图片<input  id="qimage1" type="text" ></tr><br> -->
+        <tr>
+            <td>第一张题目图片</td>
+        </tr>
+        <tr>
+            <td><input  id="qimage1" type="text" ></td>
+        </tr>
+        <!-- <tr>第二张题目图片<input  id="qimage2" type="text" ></tr><br> -->
+        <tr>
+            <td>第二张题目图片</td>
+        </tr>
+        <tr>
+            <td><input  id="qimage2" type="text" ></td>
+        </tr>
+        <!-- <tr>第三张题目图片<input  id="qimage3" type="text" ></tr><br> -->
+        <tr>
+            <td>第三张题目图片</td>
+        </tr>
+        <tr>
+            <td><input  id="qimage3" type="text" ></td>
+        </tr>
+        <!-- <tr>案例题所有正文<input id="content" type="text"  style="width: 1000px;height: 50px;"></tr>（++表示填空， ||与||中间的字加粗，文本换行用\r\n）<br> -->
+        <tr>
+            <td>案例题所有正文(++表示填空， ||与||中间的字加粗，文本换行用\r\n)</td>
+        </tr>
+        <tr>
+            <td><input id="content" type="text"  style="width: 1000px;height: 50px;"></td>
+        </tr>
+        <!-- <tr>正文图片地址1<input id="image1" type="text" ></tr><br> -->
+        <tr>
+            <td>正文图片地址1</td>
+        </tr>
+        <tr>
+            <td><input id="image1" type="text" ></td>
+        </tr>
+        <!-- <tr>正文图片地址2<input id="image2" type="text" ></tr><br> -->
+        <tr>
+            <td>正文图片地址2</td>
+        </tr>
+        <tr>
+            <td><input id="image2" type="text" ></td>
+        </tr>
+        <!-- <tr>正文图片地址3<input id="image3" type="text" ></tr><br> -->
+        <tr>
+            <td>正文图片地址3</td>
+        </tr>
+        <tr>
+            <td><input id="image3" type="text" ></td>
+        </tr>
+        <!-- <tr>正文图片地址4<input id="image4" type="text" ></tr><br> -->
+        <tr>
+            <td>正文图片地址4</td>
+        </tr>
+        <tr>
+            <td><input id="image4" type="text" ></td>
+        </tr>
+        <!-- <tr>正确答案文本<input id="right" type="text" ></tr><br>  
+        <tr>正确答案图片地址<input id="rightimage" type="text" ></tr><br> -->
 
-        <tr>第一张题目图片<input  id="qimage1" type="text" ></tr><br>
-        <tr>第二张题目图片<input  id="qimage2" type="text" ></tr><br>
-        <tr>第三张题目图片<input  id="qimage3" type="text" ></tr><br>
-
-        <tr>案例题所有正文<input id="content" type="text"  style="width: 1000px;height: 50px;"></tr>（++表示填空， ||与||中间的字加粗，文本换行用\r\n）<br>
-        <!-- <tr><input type="text" id="bold1"  placeholder="正文中需要加粗的所有地方，每个用|分开录入"></tr><br> -->
-
-        <tr>正文图片地址1<input id="image1" type="text" ></tr><br>
-        <tr>正文图片地址2<input id="image2" type="text" ></tr><br>
-        <tr>正文图片地址3<input id="image3" type="text" ></tr><br>
-        <tr>正文图片地址4<input id="image4" type="text" ></tr><br>
-
-        <tr>正确答案文本<input id="right" type="text" ></tr><br>
-        <tr>正确答案图片地址<input id="rightimage" type="text" ></tr><br>
-        <tr>错误答案文本1<input id="error1" type="text" ></tr><br>
+<!--         <tr>错误答案文本1<input id="error1" type="text" ></tr><br>
         <tr>错误答案图片地址<input id="error1image" type="text" ></tr><br>
+
         <tr>错误答案文本2<input id="error2" type="text" ></tr><br>
         <tr>错误答案图片地址<input id="error2image" type="text" ></tr><br>
+
         <tr>错误答案文本3<input id="error3" type="text" ></tr><br>
-        <tr>错误答案图片地址<input id="error3image" type="text" ></tr><br>
+        <tr>错误答案图片地址<input id="error3image" type="text" ></tr><br> -->
 
-        <tr>过渡段／介绍段<input id="intro" type="text" ></tr><br>
-        <tr>解释/知识锦囊<input id="know" type="text" ></tr><br>
-        <tr>解释／知识中需要加粗的所有地方，每个用||分开录入<input type="text" id="bold2" ></tr><br>
+        <!-- 答案一 -->
+        <tr>
+            <td>
+                答案一文本               
+                <select id="answer_valid_1">
+                    <option value="1">正确</option>
+                    <option value="2">错误</option>
+                </select>
+            </td>
+        </tr><br>
+        <tr>    
+            <td>    
+                <input id="right" type="text" >
+            </td> 
+        </tr><br>
+        <tr>
+            <td>
+                答案一图片地址
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="rightimage" type="text" >
+            </td>
+        </tr>
 
-        <tr>解释图片地址5<input id="image5" type="text" ></tr><br>
-        <tr>解释图片地址6<input id="image6" type="text" ></tr><br>
-        <tr>解释图片地址7<input id="image7" type="text" ></tr><br>
-        <tr>解释图片地址8<input id="image8" type="text" ></tr><br>
+        <!-- 答案二 -->
+        <tr>
+            <td>
+                答案二文本               
+                <select id="answer_valid_2">
+                    <option value="1">正确</option>
+                    <option value="2">错误</option>
+                </select>
+            </td>
+        </tr><br>
+        <tr>    
+            <td>    
+                <input id="error1" type="text" >
+            </td> 
+        </tr><br>
+        <tr>
+            <td>
+                答案二图片地址
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="error1image" type="text" >
+            </td>
+        </tr>
 
-        <tr><button>生成json</button></tr>
+        <!-- 答案三 -->
+        <tr>
+            <td>
+                答案三文本               
+                <select id="answer_valid_3">
+                    <option value="1">正确</option>
+                    <option value="2">错误</option>
+                </select>
+            </td>
+        </tr><br>
+        <tr>    
+            <td>    
+                <input id="error2" type="text" >
+            </td> 
+        </tr><br>
+        <tr>
+            <td>
+                答案三图片地址
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="error2image" type="text" >
+            </td>
+        </tr>
+
+        <!-- 答案四 -->
+        <tr>
+            <td>
+                答案四文本               
+                <select id="answer_valid_4">
+                    <option value="1">正确</option>
+                    <option value="2" >错误</option>
+                </select>
+            </td>
+        </tr><br>
+        <tr>    
+            <td>    
+                <input id="error3" type="text" >
+            </td> 
+        </tr><br>
+        <tr>
+            <td>
+                答案四图片地址
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="error3image" type="text" >
+            </td>
+        </tr>
+
+
+        
+
+        <!-- <tr>过渡段／介绍段<input id="intro" type="text" ></tr><br> -->
+        <tr>
+            <td>过渡段／介绍段</td>
+        </tr>
+        <tr>
+            <td><input id="intro" type="text" ></td>
+        </tr>
+        <!-- <tr>解释/知识锦囊<input id="know" type="text" ></tr><br> -->
+        <tr>
+            <td>解释/知识锦囊</td>
+        </tr>
+        <tr>
+            <td><input id="know" type="text" ></td>
+        </tr>
+        <!-- <tr>解释／知识中需要加粗的所有地方，每个用||分开录入<input type="text" id="bold2" ></tr><br> -->
+        <tr>
+            <td>解释／知识中需要加粗的所有地方，每个用||分开录入</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="bold2" ></td>
+        </tr>
+        <!-- <tr>解释图片地址5<input id="image5" type="text" ></tr><br> -->
+        <tr>
+            <td>解释图片地址5</td>
+        </tr>
+        <tr>
+            <td><input id="image5" type="text" ></td>
+        </tr>
+        <!-- <tr>解释图片地址6<input id="image6" type="text" ></tr><br> -->
+        <tr>
+            <td>解释图片地址6</td>
+        </tr>
+        <tr>
+            <td><input id="image6" type="text" ></td>
+        </tr>
+        <!-- <tr>解释图片地址7<input id="image7" type="text" ></tr><br> -->
+        <tr>
+            <td>解释图片地址7</td>
+        </tr>
+        <tr>
+            <td><input id="image7" type="text" ></td>
+        </tr>
+        <!-- <tr>解释图片地址8<input id="image8" type="text" ></tr><br> -->
+        <tr>
+            <td>解释图片地址8</td>
+        </tr>
+        <tr>
+            <td><input id="image8" type="text" ></td>
+        </tr>
+        <tr>
+            <td><button>生成json</button></td>
+        </tr>
     </table>
     </div>
 
@@ -97,7 +302,40 @@
         var qimage2 = $("#qimage2").val();
         var qimage3 = $("#qimage3").val();
 
-
+        // 获取正误判断的值
+        var answer_valid_1 = $("#answer_valid_1").val();
+        var answer_valid_2 = $("#answer_valid_2").val();
+        var answer_valid_3 = $("#answer_valid_3").val();
+        var answer_valid_4 = $("#answer_valid_4").val();
+        // 给判断赋值
+        var answer_valid_1_val;
+        var answer_valid_2_val;
+        var answer_valid_3_val;
+        var answer_valid_4_val;
+        // 1
+        if (answer_valid_1 == 1) {
+            answer_valid_1_val = 2;
+        }else{
+            answer_valid_1_val = 0;
+        }
+        // 2
+        if (answer_valid_2 == 1) {
+            answer_valid_2_val = 2;
+        }else{
+            answer_valid_2_val = 0;
+        }
+        // 3
+        if (answer_valid_3 == 1) {
+            answer_valid_3_val = 2;
+        }else{
+            answer_valid_3_val = 0;
+        }
+        // 4
+        if (answer_valid_4 == 1) {
+            answer_valid_4_val = 2;
+        }else{
+            answer_valid_4_val = 0;
+        }
     　　 $.ajax({
 
     　　　　url:"/anliti/",
@@ -210,7 +448,7 @@
                     +'"userId":'+data.dic7.userId+'},'
 
                     +'{"image":"'+data.dic8.image+'",'
-                    +'"correctId":'+data.dic8.correctId+','
+                    +'"correctId":'+answer_valid_1_val+','
                     +'"id":'+data.dic8.id+','
                     +'"block":'+data.dic8.block+','
                     +'"index":'+data.dic8.index+','
@@ -219,7 +457,7 @@
                     +'"userId":'+data.dic8.userId+'},'
 
                     +'{"image":"'+data.dic9.image+'",'
-                    +'"correctId":'+data.dic9.correctId+','
+                    +'"correctId":'+answer_valid_2_val+','
                     +'"id":'+data.dic9.id+','
                     +'"block":'+data.dic9.block+','
                     +'"index":'+data.dic9.index+','
@@ -228,7 +466,7 @@
                     +'"userId":'+data.dic9.userId+'},'
 
                     +'{"image":"'+data.dic10.image+'",'
-                    +'"correctId":'+data.dic10.correctId+','
+                    +'"correctId":'+answer_valid_3_val+','
                     +'"id":'+data.dic10.id+','
                     +'"block":'+data.dic10.block+','
                     +'"index":'+data.dic10.index+','
@@ -237,7 +475,7 @@
                     +'"userId":'+data.dic10.userId+'},'
 
                     +'{"image":"'+data.dic11.image+'",'
-                    +'"correctId":'+data.dic11.correctId+','
+                    +'"correctId":'+answer_valid_4_val+','
                     +'"id":'+data.dic11.id+','
                     +'"block":'+data.dic11.block+','
                     +'"index":'+data.dic11.index+','
