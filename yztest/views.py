@@ -108,7 +108,7 @@ def yuanliti(request):
         'dic11':{
             "id": 11,
             "text": "",
-            "type": 1001,
+            "type": 1111,
             "userId": 0,
             "block":4,
             "index":1,
@@ -298,7 +298,7 @@ def anliti(request):
             "type": 2001,
             "userId": 0,
         },
-        #正确答案
+        #答案
         'dic8':{
             "correctId": 2,
             "id": 8,
@@ -309,7 +309,7 @@ def anliti(request):
             "type": 3002,
             "userId": 0,
         },
-        #错误答案
+        #答案
         'dic9':{
             "correctId": 0,
             "id": 9,
@@ -320,7 +320,7 @@ def anliti(request):
             "type": 3002,
             "userId": 0,
         },
-        #错误答案
+        #答案
         'dic10':{
             "correctId": 0,
             "id": 10,
@@ -331,7 +331,7 @@ def anliti(request):
             "type": 3002,
             "userId": 0,
         },
-        #错误答案
+        #答案
         'dic11':{
             "correctId": 0,
             "id": 11,
@@ -355,7 +355,7 @@ def anliti(request):
         'dic13':{
             "id": 13,
             "text": "",
-            "type": 1001,
+            "type": 1111,
             "userId": 0,
             "block":4,
             "index":1,
@@ -677,7 +677,7 @@ def dapeiti(request):
         'dic21':{
             "id": 21,
             "text": "",
-            "type": 1001,
+            "type": 1111,
             "userId": 0,
             "block":1,
             "index":1,

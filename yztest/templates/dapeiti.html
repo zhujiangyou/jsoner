@@ -53,8 +53,8 @@
         <tr>题目六答案<input id="answer6" type="text" ></tr><br>
 
         <tr>过渡段／介绍段<input id="intro" type="text" ></tr><br>
-        <tr>解释/知识锦囊<input id="know" type="text" ></tr><br>
-        <tr>解释／知识中需要加粗的所有地方，每个用||分开录入<input type="text" id="bold2" ></tr><br>
+        <tr>解释/知识中需要加粗的所有地方，每个用||分开录入<input id="know" type="text" ></tr><br>
+        <!-- <tr>解释／知识中需要加粗的所有地方，每个用||分开录入<input type="text" id="bold2" ></tr><br> -->
 
         <tr>解释图片地址1<input id="image5" type="text" ></tr><br>
         <tr>解释图片地址2<input id="image6" type="text" ></tr><br>
@@ -349,12 +349,12 @@
                     +'"type":'+data.dic21.type+','
                     +'"userId":'+data.dic21.userId+'},'
 
-                    +'{"text":"'+data.dic22.text+'",'
-                    +'"id":'+data.dic22.id+','
-                    +'"block":'+data.dic22.block+','
-                    +'"index":'+data.dic22.index+','
-                    +'"type":'+data.dic22.type+','
-                    +'"userId":'+data.dic22.userId+'},'
+                    // +'{"text":"'+data.dic22.text+'",'
+                    // +'"id":'+data.dic22.id+','
+                    // +'"block":'+data.dic22.block+','
+                    // +'"index":'+data.dic22.index+','
+                    // +'"type":'+data.dic22.type+','
+                    // +'"userId":'+data.dic22.userId+'},'
 
                     +'{"image":"'+data.dic23.image+'",'
                     +'"id":'+data.dic23.id+','
@@ -433,6 +433,52 @@
                         }
                       continue;
                     }
+
+                     // 解释加粗
+                if (ele.type==1111) {
+                    var index = 1;
+                    var id = 12;
+                    context = ele.text;
+                    var boldText = context.split('||');
+                    for(var z=0;z<boldText.length;z++){
+                          if(z == 0 && boldText[0] != ""){
+
+                                    var a ={
+                                       'type':1001,
+                                       'block':4,
+                                       'id':id++,
+                                       'index':index++,
+                                       'userId': 0,
+                                       'text':boldText[0]
+                                    };
+                                    newJson.push(a);
+                                  }
+                                  if(z != 0 && z%2 == 0 && boldText[z] != ""){
+                                      var a ={
+                                        'type':1001,
+                                       'block':4,
+                                       'id':id++,
+                                       'userId': 0,
+                                       'index':index++,
+                                       'text':boldText[z]
+                                      };
+                                    newJson.push(a);
+                                    }
+                                  if(z != 0 && z%2 == 1 && boldText[z] != ""){
+                                      var a ={
+                                        'type':1003,
+                                       'block':4,
+                                       'id':id++,
+                                       'userId': 0,
+                                       'index':index++,
+                                       'text':boldText[z]
+                                      };
+                                      newJson.push(a);
+                                    }
+                    }
+                    continue;
+                }
+                    
                   newJson.push(ele);
                 }
 
