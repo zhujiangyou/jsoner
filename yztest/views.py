@@ -822,7 +822,7 @@ def shuomingti(request):
         'dic2':{
             "id": 2,
             "text": "",
-            "type": 4001,
+            "type": 4111,
             "userId": 0,
             "block":7,
             "index":1,
@@ -882,7 +882,7 @@ def shuomingti(request):
         'dic8':{
             "id": 8,
             "text": "",
-            "type": 4001,
+            "type": 4222,
             "userId": 0,
             "block":7,
             "index":7,
@@ -944,7 +944,7 @@ def shuomingti(request):
             "text": "",
             "block":7,
             "index":13,
-            "type": 4001,
+            "type": 4333,
             "userId": 0,
         },
         #第一个图片

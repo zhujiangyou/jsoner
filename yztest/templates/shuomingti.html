@@ -24,20 +24,20 @@
         <tr>第二张题目图片<input  id="qimage2" type="text" ></tr><br>
         <tr>第三张题目图片<input  id="qimage3" type="text" ></tr><br>
 
-        <tr>输入所有对话，每个对话用句号结尾<textarea id="duihua1" rows="10" cols="131" ></textarea></tr><br>
+        <tr>输入所有对话，每个对话用@结尾<textarea id="duihua1" rows="10" cols="131" ></textarea></tr><br>
         <tr>问题一<input  id="question1" type="text"  name=""></tr><br>
 
         <tr>问题一回答一<input  id="right1" type="text" ></tr><br>
         <tr>问题一回答二<input  id="error1" type="text" ></tr><br>
         <tr>问题一回答一的下一步说明<input  id="rightshuoming1" type="text" ></tr><br>
         <tr>问题二回答二的下一步说明<input  id="errorshuoming1" type="text" ></tr><br>
-        <tr>输入第二个所有对话，每个对话用句号结尾<textarea id="duihua2" rows="10" cols="131" ></textarea></tr><br>
+        <tr>输入第二个所有对话，每个对话用@结尾<textarea id="duihua2" rows="10" cols="131" ></textarea></tr><br>
         <tr>输入第二个问题<input  id="question2" type="text" ></tr><br>
         <tr>问题二回答一<input  id="right2" type="text" ></tr><br>
         <tr>问题二回答二<input  id="error2" type="text" ></tr><br>
         <tr>问题二回答一的下一步说明<input  id="rightshuoming2" type="text" ></tr><br>
         <tr>问题二回答二的下一步说明<input  id="errorshuoming2" type="text" ></tr><br>
-        <tr>输入第三个所有对话，每个对话用句号结尾<textarea id="duihua3" rows="10" cols="131" ></textarea></tr><br>
+        <tr>输入第三个所有对话，每个对话用@结尾<textarea id="duihua3" rows="10" cols="131" ></textarea></tr><br>
         <tr>第一张图片<input  id="image1" type="text" ></tr><br>
         <tr>第二张图片<input  id="image2" type="text" ></tr><br>
         <tr>第三张图片<input  id="image3" type="text" ></tr><br>
@@ -245,9 +245,9 @@
                     +'"userId":'+data.dic14.userId+'},'
 
                     +'{"image":"'+data.dic15.image+'",'
-                    +'"id":'+data.dic2.id+','
-                    +'"type":'+data.dic2.type+','
-                    +'"userId":'+data.dic2.userId+'},'
+                    +'"id":'+data.dic15.id+','
+                    +'"type":'+data.dic15.type+','
+                    +'"userId":'+data.dic15.userId+'},'
 
                     +'{"image":"'+data.dic16.image+'",'
                     +'"id":'+data.dic16.id+','
@@ -266,40 +266,104 @@
 
 
                     +']';
-                console.info(txt);
+
+                // console.info(txt);
                 var context = '';
-                var json = $.parseJSON( txt );
+                var json = $.parseJSON(txt);
+
                 for(var i=0;i<json.length;i++){
-                  var ele = json[i];
-                  if(ele.text==''){
-                    continue;
-                  }
 
-                    // if (ele.type==4001) {
-                    //     var index = 1;
-                    //     context = ele.text;
-                    //     var eles = context.split('++');
-                    //     for(var j=0;j<eles.length;j++){
-                    //     if(j != eles.length-1){
-                    //        var a ={
-                    //                 "id": 2,
-                    //                 "text": eles[j],
-                    //                 "type": 4001,
-                    //                 "userId": 0,
-                    //                 "block":7,
-                    //                 "index":index++,
-                    //              };
-                    //              newJson.push(a);
-                    //          }
-                    //     }
-                    //         continue;
-                    // }
+                        var ele = json[i];
+                        // console.log(ele)
 
-                  newJson.push(ele);
+                        // if(ele.text === undefined || ele.text==''){
+                        //     continue;
+                        // } 
+                        if(ele.text==''){
+                            continue;
+                        }
+                        // 对话题分割
+                        if (ele.type==4111) {
+
+                            context = ele.text;
+                            var eles = context.split('@');
+                                for(var j=0;j<eles.length;j++){
+
+                                        if(eles[j] != ""){
+                                            
+                                           var a ={
+                                                    "id": 2,
+                                                    "text": eles[j],
+                                                    "type": 4001,
+                                                    "userId": 0,
+                                                    "block": 7,
+                                                    "index": 1
+                                                 };
+                                                 newJson.push(a);
+                                             }
+                                }
+
+
+
+
+
+                              continue;  
+
+                         }
+                         else if(ele.type==4222) {
+
+                        // if(ele.type==4222) {
+                            context = ele.text;
+                            
+                            var eles = context.split('#');
+                            
+                                for(var j=0;j<eles.length;j++){
+
+                                        if(eles[j] != ""){
+                                            
+                                           var a ={
+                                                    "id": 8,
+                                                    "text": eles[j],
+                                                    "type": 4001,
+                                                    "userId": 0,
+                                                    "block": 7,
+                                                    "index": 7
+                                                 };
+                                                 newJson.push(a);
+                                             }
+                                             
+                                }
+                              continue;  
+                        }
+                        else if (ele.type==4333) {
+                            
+                            context = ele.text;
+                            
+                            var eles = context.split('$');
+                            
+                                for(var j=0;j<eles.length;j++){
+
+                                        if(eles[j] != ""){
+                                            
+                                           var a ={
+                                                    "id": 14,
+                                                    "text": eles[j],
+                                                    "type": 4001,
+                                                    "userId": 0,
+                                                    "block": 7,
+                                                    "index": 13
+                                                 };
+                                                 newJson.push(a);
+                                             }
+                                             
+                                }
+                              continue;  
+                        }
+
+                        
+                                 newJson.push(ele);
                 }
-                console.info(JSON.stringify(newJson));
-
-
+                // console.info(JSON.stringify(newJson));
                 $("#tarea").val(
                     JSON.stringify(newJson)
                     );
