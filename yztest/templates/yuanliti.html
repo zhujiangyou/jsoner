@@ -25,23 +25,40 @@
         <tr>第二张题目图片<input  id="qimage2" type="text" ></tr><br>
         <tr>第三张题目图片<input  id="qimage3" type="text" ></tr><br>
 
-        <tr>填空题正文<input id="content" type="text"  style="width: 1000px;height: 50px;"></tr>（++表示填空， ||与||中间的字加粗，文本换行用\r\n）<br>
-        <!-- <tr><input type="text" id="bold1"  placeholder="正文中需要加粗的所有地方，每个用|分开录入"></tr><br> -->
+        <!-- <tr>填空题正文<input id="content" type="text"  style="width: 1000px;height: 50px;"></tr>（++表示填空， ||与||中间的字加粗，文本换行用\r\n）<br> -->
+
+        <tr>填空题正文（++表示填空， ||与||中间的字加粗）
+            <textarea id="content" cols="150" rows="10"></textarea>
+        </tr>
 
         <tr>正文图片地址1<input id="image1" type="text" ></tr><br>
         <tr>正文图片地址2<input id="image2" type="text" ></tr><br>
         <tr>正文图片地址3<input id="image3" type="text" ></tr><br>
         <tr>正文图片地址4<input id="image4" type="text" ></tr><br>
 
-        <tr>正确答案文本<input id="right" type="text"  ></tr><br>
-        <tr>正确答案描述<input id="rightimage" type="text" ></tr><br>
-        <tr>错误答案文本<input id="error" type="text" ></tr><br>
-        <tr>错误答案描述<input id="errorimage" type="text" ></tr><br>
+        <tr>答案一文本
+            <select id="answer_valid_1">
+                    <option value="1">正确</option>
+                    <option value="2">错误</option>
+            </select>
+            <input id="right" type="text"  ></tr><br>
+        <tr>答案一描述<input id="rightimage" type="text" ></tr><br>
+        <tr>答案二文本
+            <select id="answer_valid_2">
+                    <option value="1">正确</option>
+                    <option value="2">错误</option>
+            </select>
+            <input id="error" type="text" ></tr><br>
+        <tr>答案二描述<input id="errorimage" type="text" ></tr><br>
 
-        <tr>过渡段／介绍段<input id="intro" type="text" ></tr><br>
-        <tr>解释/知识中需要加粗的所有地方，每个用||分开录入<input id="know" type="text" ></tr><br>
-        <!-- <tr>解释／知识中需要加粗的所有地方，每个用||分开录入<input type="text" id="bold2" ></tr><br> -->
-
+        <!-- <tr>过渡段／介绍段<input id="intro" type="text" ></tr><br> -->
+        <tr>过渡段／介绍段
+            <textarea id="intro" cols="150" rows="10"></textarea>
+        </tr>
+        <!-- <tr>解释/知识中需要加粗的所有地方，每个用||分开录入<input id="know" type="text" ></tr><br> -->
+        <tr>解释/知识中需要加粗的所有地方，每个用||分开录入
+            <textarea id="know" cols="150" rows="10"></textarea>
+        </tr>
 
         <tr>解释图片地址1<input id="image5" type="text" ></tr><br>
         <tr>解释图片地址2<input id="image6" type="text" ></tr><br>
@@ -93,6 +110,29 @@
         var qimage1 = $("#qimage1").val();
         var qimage2 = $("#qimage2").val();
         var qimage3 = $("#qimage3").val();
+   
+
+        // 获取正误判断的值
+        var answer_valid_1 = $("#answer_valid_1").val();
+        var answer_valid_2 = $("#answer_valid_2").val();
+
+        // 给判断赋值
+        var answer_valid_1_val;
+        var answer_valid_2_val;
+
+
+        // 1
+        if (answer_valid_1 == 1) {
+            answer_valid_1_val = 13;
+        }else{
+            answer_valid_1_val = 0;
+        }
+        // 2
+        if (answer_valid_2 == 1) {
+            answer_valid_2_val = 13;
+        }else{
+            answer_valid_2_val = 0;
+        }
 
 
     　　 $.ajax({
@@ -203,7 +243,7 @@
                     +'"type":'+data.dic7.type+','
                     +'"userId":'+data.dic7.userId+'},'
 
-                    +'{"correctId":'+data.dic8.correctId+','
+                    +'{"correctId":'+answer_valid_1_val+','
                     +'"brief":"'+data.dic8.image+'",'
                     +'"text":"'+data.dic8.text+'",'
                     +'"id":'+data.dic8.id+','
@@ -212,7 +252,7 @@
                     +'"type":'+data.dic8.type+','
                     +'"userId":'+data.dic8.userId+'},'
 
-                    +'{"correctId":'+data.dic9.correctId+','
+                    +'{"correctId":'+answer_valid_2_val+','
                     +'"brief":"'+data.dic9.image+'",'
                     +'"text":"'+data.dic9.text+'",'
                     +'"id":'+data.dic9.id+','
