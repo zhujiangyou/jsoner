@@ -203,7 +203,7 @@ def yuanliti(request):
         action = request.POST.get('action', '')
         if action == 'tiankong':
             dic['dic1']['text'] = request.POST.get('title','')
-            dic['dic2']['text'] = request.POST.get('content','')
+            dic['dic2']['text'] = request.POST.get('content','').replace("\n",'\\r\\n')
             dic['dic3']['text'] = request.POST.get('bold1','')
 
             dic['dic4']['image'] = request.POST.get('image1','')
@@ -218,7 +218,7 @@ def yuanliti(request):
             dic['dic9']['text'] = request.POST.get('error','')
 
             dic['dic10']['text'] = request.POST.get('intro','')
-            dic['dic11']['text'] = request.POST.get('know','')
+            dic['dic11']['text'] = request.POST.get('know','').replace("\n",'\\r\\n')
             dic['dic12']['text'] = request.POST.get('bold2','')
 
             dic['dic14']['image'] = request.POST.get('image5','')
@@ -442,7 +442,7 @@ def anliti(request):
         if action == 'anliti':
 
             dic['dic1']['text'] = request.POST.get('title','')
-            dic['dic2']['text'] = request.POST.get('content','')
+            dic['dic2']['text'] = request.POST.get('content','').replace("\n",'\\r\\n')
             dic['dic3']['text'] = request.POST.get('bold1','')
 
             dic['dic4']['image'] = request.POST.get('image1','')
@@ -463,7 +463,7 @@ def anliti(request):
             dic['dic11']['text'] = request.POST.get('error3','')
 
             dic['dic12']['text'] = request.POST.get('intro','')
-            dic['dic13']['text'] = request.POST.get('know','')
+            dic['dic13']['text'] = request.POST.get('know','').replace("\n",'\\r\\n')
             dic['dic14']['text'] = request.POST.get('bold2','')
 
             dic['dic15']['image'] = request.POST.get('image5','')
@@ -763,7 +763,7 @@ def dapeiti(request):
         if action == 'dapeiti':
 
             dic['dic1']['text'] = request.POST.get('title','')
-            dic['dic2']['text'] = request.POST.get('content','')
+            dic['dic2']['text'] = request.POST.get('content','').replace("\n",'\\r\\n')
             dic['dic3']['text'] = request.POST.get('bold1','')
 
             dic['dic4']['image'] = request.POST.get('image1','')
@@ -792,7 +792,7 @@ def dapeiti(request):
             dic['dic19']['text'] = request.POST.get('answer6','')
 
             dic['dic20']['text'] = request.POST.get('intro','')
-            dic['dic21']['text'] = request.POST.get('know','')
+            dic['dic21']['text'] = request.POST.get('know','').replace("\n",'\\r\\n')
             dic['dic22']['text'] = request.POST.get('bold2','')
 
             dic['dic23']['image'] = request.POST.get('image5','')
