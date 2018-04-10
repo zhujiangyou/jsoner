@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>知识点回顾文字json数据生成</title>
-
+    <script type="text/javascript" src="/static/jquery/jquery.js"></script>
     <style type="text/css">
         input {
             width: 800px;
@@ -42,7 +42,9 @@
         <tr>标题八<input  id="title8" type="text" ></tr><br>
         <tr>内容八<input  id="content8" type="text" ></tr><br>
      <br>
-        <tr><button>生成json</button></tr>
+        <tr><button id="shengcheng">生成json</button>
+        	<button id="update">修改json</button>
+        </tr>
     </table>
 </div>
 
@@ -51,11 +53,51 @@
 </div>
 
 </div>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
 <script type="text/javascript">
 	
-$(function(){
+// $(function(){
+$(document).ready(function() {
+	$("#update").click(function(){
+            var dd = $("#tarea").val();
+            var wenben = eval(dd)
+            for(var i in wenben){
+                if(wenben[i].fk == 1){
+                    $("#title1").val(wenben[i].title);
+                    $("#content1").val(wenben[i].content);
+                }
+                if(wenben[i].fk == 2){
+                    $("#title2").val(wenben[i].title);
+                    $("#content2").val(wenben[i].content);
+                }
+                if(wenben[i].fk == 3){
+                    $("#title3").val(wenben[i].title);
+                    $("#content3").val(wenben[i].content);
+                }
+                if(wenben[i].fk == 4){
+                    $("#title4").val(wenben[i].title);
+                    $("#content4").val(wenben[i].content);
+                }
+                if(wenben[i].fk == 5){
+                    $("#title5").val(wenben[i].title);
+                    $("#content5").val(wenben[i].content);
+                }
+                if(wenben[i].fk == 6){
+                    $("#title6").val(wenben[i].title);
+                    $("#content6").val(wenben[i].content);
+                }
+                if(wenben[i].fk == 7){
+                    $("#title7").val(wenben[i].title);
+                    $("#content7").val(wenben[i].content);
+                }
+                if(wenben[i].fk == 8){
+                    $("#title8").val(wenben[i].title);
+                    $("#content8").val(wenben[i].content);
+                }
+            }
 
+        });
 	$("button").click(function(){
 		
 		var title1 = $("#title1").val();
@@ -118,35 +160,43 @@ $(function(){
 				var txt = '['+
 					'{"title":"'+data.dic1.title+'",'
 					+'"index":'+data.dic1.index+','
-					+'"content":"'+data.dic1.content+'"},'
+					+'"content":"'+data.dic1.content+'",'
+					+'"fk":1},'
 
 					+'{"title":"'+data.dic2.title+'",'
 					+'"index":'+data.dic2.index+','
-					+'"content":"'+data.dic2.content+'"},'
+					+'"content":"'+data.dic2.content+'",'
+					+'"fk":2},'
 
 					+'{"title":"'+data.dic3.title+'",'
 					+'"index":'+data.dic3.index+','
-					+'"content":"'+data.dic3.content+'"},'
+					+'"content":"'+data.dic3.content+'",'
+					+'"fk":3},'
 
 					+'{"title":"'+data.dic4.title+'",'
 					+'"index":'+data.dic4.index+','
-					+'"content":"'+data.dic4.content+'"},'
+					+'"content":"'+data.dic4.content+'",'
+					+'"fk":4},'
 
 					+'{"title":"'+data.dic5.title+'",'
 					+'"index":'+data.dic5.index+','
-					+'"content":"'+data.dic5.content+'"},'
+					+'"content":"'+data.dic5.content+'",'
+					+'"fk":5},'
 
 					+'{"title":"'+data.dic6.title+'",'
 					+'"index":'+data.dic6.index+','
-					+'"content":"'+data.dic6.content+'"},'
+					+'"content":"'+data.dic6.content+'",'
+					+'"fk":6},'
 
 					+'{"title":"'+data.dic7.title+'",'
 					+'"index":'+data.dic7.index+','
-					+'"content":"'+data.dic7.content+'"},'
+					+'"content":"'+data.dic7.content+'",'
+					+'"fk":7},'
 
 					+'{"title":"'+data.dic8.title+'",'
 					+'"index":'+data.dic8.index+','
-					+'"content":"'+data.dic8.content+'"}'
+					+'"content":"'+data.dic8.content+'",'
+					+'"fk":8}'
 
 					+']';
 					console.info(txt);
@@ -172,5 +222,4 @@ $(function(){
 });
 
 </script>
-</body>
 </html>

@@ -234,6 +234,7 @@ def yuanliti(request):
     return render(request, 'yuanliti.html')
 
 
+
 def anliti(request):
     dic = {
         #标题
@@ -1046,8 +1047,8 @@ def shuomingti(request):
 
             dic['dic15']['image'] = request.POST.get('image1','')
             dic['dic16']['image'] = request.POST.get('image2','')
-            dic['dic17']['image'] = request.POST.get('image2','')
-            dic['dic18']['image'] = request.POST.get('image3','')
+            dic['dic17']['image'] = request.POST.get('image3','')
+            dic['dic18']['image'] = request.POST.get('image4','')
 
             dic['dic19']['image'] = request.POST.get('qimage1','')
             dic['dic20']['image'] = request.POST.get('qimage2','')

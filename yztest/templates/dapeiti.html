@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>json数据生成</title>
+    <script type="text/javascript" src="/static/jquery/jquery.js"></script>
 
     <style type="text/css">
         input {
@@ -85,16 +86,137 @@
         <tr>解释图片地址3(此处暂时不用录入)<input id="image7" type="text" ></tr><br>
         <tr>解释图片地址4(此处暂时不用录入)<input id="image8" type="text" ></tr><br>
 
-        <tr><button>生成json</button></tr>
+        <tr><button id="shengcheng">生成json</button>&nbsp;&nbsp;
+            <button id="update">修改json</button>
+        </tr>
     </table>
     </div>
     <textarea id="tarea" rows="20" cols="100"></textarea>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
 <script type="text/javascript">
 
-    $(function(){
+    // $(function(){
+    $(document).ready(function() {
+        $("#update").click(function(){
+            var dd = $("#tarea").val();
+            var wenben = eval(dd)
+            var rr = ""
+            var tt = ""
+            for(var i in wenben){
+                if(wenben[i].fk == 1){
+                    $("#qimage1").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 2){
+                    $("#qimage2").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 3){
+                    $("#qimage3").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 4){
+                    $("#title").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 5){
+                    $("#intro").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 6){
+                    // $("#content").val(wenben[i].text);
+                    var ww = wenben[i];
+                    if (ww.type == 1001) {
+                        rr+=ww.text;
+                    }
+                    if (ww.type == 5001) {
+                        rr+='++';
+                    }
+                    if (ww.type == 1003) {
+                        rr+='||'+ww.text+'||';
+                    }
+                }
+                if(wenben[i].fk == 7){
+                    $("#image1").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 8){
+                    $("#image2").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 9){
+                    $("#image3").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 10){
+                    $("#image4").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 11){
+                    $("#question1").val(wenben[i].text);
+                    $("#questionimage1").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 13){
+                    $("#question2").val(wenben[i].text);
+                    $("#questionimage2").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 15){
+                    $("#question3").val(wenben[i].text);
+                    $("#questionimage3").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 17){
+                    $("#question4").val(wenben[i].text);
+                    $("#questionimage4").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 19){
+                    $("#question5").val(wenben[i].text);
+                    $("#questionimage5").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 21){
+                    $("#question6").val(wenben[i].text);
+                    $("#questionimage6").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 23){
+                    $("#answer1").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 24){
+                    $("#answer2").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 25){
+                    $("#answer3").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 26){
+                    $("#answer4").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 27){
+                    $("#answer5").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 28){
+                    $("#answer6").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 29){
+                    // $("#answer1").val(wenben[i].text);
+                    var ww = wenben[i];
+                    if (ww.type == 1001) {
+                        tt+=ww.text;
+                    }
+                    if (ww.type == 5001) {
+                        tt+='++';
+                    }
+                    if (ww.type == 1003) {
+                        tt+='||'+ww.text+'||';
+                    }
+                }
+                if(wenben[i].fk == 30){
+                    $("#image5").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 31){
+                    $("#image6").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 32){
+                    $("#image7").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 33){
+                    $("#image8").val(wenben[i].image);
+                }
+            }
+            $("#content").val(rr);
+                $("#know").val(tt);
 
-        $("button").click(function(){
+        });    
+        $("#shengcheng").click(function(){
 
         var title = $("#title").val();
 
@@ -198,28 +320,32 @@
                     +'"id":'+data.dic1.id+','
                     +'"block":'+data.dic1.block+','
                     +'"type":'+data.dic1.type+','
-                    +'"userId":'+data.dic1.userId+'},'
+                    +'"userId":'+data.dic1.userId+','
+                    +'"fk":4},'
 
                     +'{"image":"'+data.dic27.image+'",'
                     +'"id":'+data.dic27.id+','
                     +'"block":'+data.dic27.block+','
                     +'"index":'+data.dic27.index+','
                     +'"type":'+data.dic27.type+','
-                    +'"userId":'+data.dic27.userId+'},'
+                    +'"userId":'+data.dic27.userId+','
+                    +'"fk":1},'
 
                     +'{"image":"'+data.dic28.image+'",'
                     +'"id":'+data.dic28.id+','
                     +'"block":'+data.dic28.block+','
                     +'"index":'+data.dic28.index+','
                     +'"type":'+data.dic28.type+','
-                    +'"userId":'+data.dic28.userId+'},'
+                    +'"userId":'+data.dic28.userId+','
+                    +'"fk":2},'
 
                     +'{"image":"'+data.dic29.image+'",'
                     +'"id":'+data.dic29.id+','
                     +'"block":'+data.dic29.block+','
                     +'"index":'+data.dic29.index+','
                     +'"type":'+data.dic29.type+','
-                    +'"userId":'+data.dic29.userId+'},'
+                    +'"userId":'+data.dic29.userId+','
+                    +'"fk":3},'
 
                     +'{"text":"'+data.dic2.text+'",'
                     +'"id":'+data.dic2.id+','
@@ -240,28 +366,32 @@
                     +'"block":'+data.dic4.block+','
                     +'"index":'+data.dic4.index+','
                     +'"type":'+data.dic4.type+','
-                    +'"userId":'+data.dic4.userId+'},'
+                    +'"userId":'+data.dic4.userId+','
+                    +'"fk":7},'
 
                     +'{"image":"'+data.dic5.image+'",'
                     +'"id":'+data.dic5.id+','
                     +'"block":'+data.dic5.block+','
                     +'"index":'+data.dic5.index+','
                     +'"type":'+data.dic5.type+','
-                    +'"userId":'+data.dic5.userId+'},'
+                    +'"userId":'+data.dic5.userId+','
+                    +'"fk":8},'
 
                     +'{"image":"'+data.dic6.image+'",'
                     +'"id":'+data.dic6.id+','
                     +'"block":'+data.dic6.block+','
                     +'"index":'+data.dic6.index+','
                     +'"type":'+data.dic6.type+','
-                    +'"userId":'+data.dic6.userId+'},'
+                    +'"userId":'+data.dic6.userId+','
+                    +'"fk":9},'
 
                     +'{"image":"'+data.dic7.image+'",'
                     +'"id":'+data.dic7.id+','
                     +'"block":'+data.dic7.block+','
                     +'"index":'+data.dic7.index+','
                     +'"type":'+data.dic7.type+','
-                    +'"userId":'+data.dic7.userId+'},'
+                    +'"userId":'+data.dic7.userId+','
+                    +'"fk":10},'
 
                     +'{"image":"'+data.dic8.image+'",'
                     +'"id":'+data.dic8.id+','
@@ -269,7 +399,8 @@
                     +'"index":'+data.dic8.index+','
                     +'"text":"'+data.dic8.text+'",'
                     +'"type":'+data.dic8.type+','
-                    +'"userId":'+data.dic8.userId+'},'
+                    +'"userId":'+data.dic8.userId+','
+                    +'"fk":11},'
 
                     +'{"image":"'+data.dic9.image+'",'
                     +'"id":'+data.dic9.id+','
@@ -277,7 +408,8 @@
                     +'"index":'+data.dic9.index+','
                     +'"text":"'+data.dic9.text+'",'
                     +'"type":'+data.dic9.type+','
-                    +'"userId":'+data.dic9.userId+'},'
+                    +'"userId":'+data.dic9.userId+','
+                    +'"fk":13},'
 
                     +'{"image":"'+data.dic10.image+'",'
                     +'"id":'+data.dic10.id+','
@@ -285,7 +417,8 @@
                     +'"index":'+data.dic10.index+','
                     +'"text":"'+data.dic10.text+'",'
                     +'"type":'+data.dic10.type+','
-                    +'"userId":'+data.dic10.userId+'},'
+                    +'"userId":'+data.dic10.userId+','
+                    +'"fk":15},'
 
                     +'{"image":"'+data.dic11.image+'",'
                     +'"id":'+data.dic11.id+','
@@ -293,7 +426,8 @@
                     +'"index":'+data.dic11.index+','
                     +'"text":"'+data.dic11.text+'",'
                     +'"type":'+data.dic11.type+','
-                    +'"userId":'+data.dic11.userId+'},'
+                    +'"userId":'+data.dic11.userId+','
+                    +'"fk":17},'
 
                     +'{"image":"'+data.dic12.image+'",'
                     +'"id":'+data.dic12.id+','
@@ -301,7 +435,8 @@
                     +'"index":'+data.dic12.index+','
                     +'"text":"'+data.dic12.text+'",'
                     +'"type":'+data.dic12.type+','
-                    +'"userId":'+data.dic12.userId+'},'
+                    +'"userId":'+data.dic12.userId+','
+                    +'"fk":19},'
 
                     +'{"image":"'+data.dic13.image+'",'
                     +'"id":'+data.dic13.id+','
@@ -309,7 +444,8 @@
                     +'"index":'+data.dic13.index+','
                     +'"text":"'+data.dic13.text+'",'
                     +'"type":'+data.dic13.type+','
-                    +'"userId":'+data.dic13.userId+'},'
+                    +'"userId":'+data.dic13.userId+','
+                    +'"fk":21},'
 
                     +'{"text":"'+data.dic14.text+'",'
                     +'"correctId":'+data.dic14.correctId+','
@@ -317,7 +453,8 @@
                     +'"block":'+data.dic14.block+','
                     +'"index":'+data.dic14.index+','
                     +'"type":'+data.dic14.type+','
-                    +'"userId":'+data.dic14.userId+'},'
+                    +'"userId":'+data.dic14.userId+','
+                    +'"fk":23},'
 
                     +'{"text":"'+data.dic15.text+'",'
                     +'"correctId":'+data.dic15.correctId+','
@@ -325,7 +462,8 @@
                     +'"block":'+data.dic15.block+','
                     +'"index":'+data.dic15.index+','
                     +'"type":'+data.dic15.type+','
-                    +'"userId":'+data.dic15.userId+'},'
+                    +'"userId":'+data.dic15.userId+','
+                    +'"fk":24},'
 
                     +'{"text":"'+data.dic16.text+'",'
                     +'"correctId":'+data.dic16.correctId+','
@@ -333,7 +471,8 @@
                     +'"block":'+data.dic16.block+','
                     +'"index":'+data.dic16.index+','
                     +'"type":'+data.dic16.type+','
-                    +'"userId":'+data.dic16.userId+'},'
+                    +'"userId":'+data.dic16.userId+','
+                    +'"fk":25},'
 
                     +'{"text":"'+data.dic17.text+'",'
                     +'"correctId":'+data.dic17.correctId+','
@@ -341,7 +480,8 @@
                     +'"block":'+data.dic17.block+','
                     +'"index":'+data.dic17.index+','
                     +'"type":'+data.dic17.type+','
-                    +'"userId":'+data.dic17.userId+'},'
+                    +'"userId":'+data.dic17.userId+','
+                    +'"fk":26},'
 
                     +'{"text":"'+data.dic18.text+'",'
                     +'"correctId":'+data.dic18.correctId+','
@@ -349,7 +489,8 @@
                     +'"block":'+data.dic18.block+','
                     +'"index":'+data.dic18.index+','
                     +'"type":'+data.dic18.type+','
-                    +'"userId":'+data.dic18.userId+'},'
+                    +'"userId":'+data.dic18.userId+','
+                    +'"fk":27},'
 
                     +'{"text":"'+data.dic19.text+'",'
                     +'"correctId":'+data.dic19.correctId+','
@@ -357,14 +498,16 @@
                     +'"block":'+data.dic19.block+','
                     +'"index":'+data.dic19.index+','
                     +'"type":'+data.dic19.type+','
-                    +'"userId":'+data.dic19.userId+'},'
+                    +'"userId":'+data.dic19.userId+','
+                    +'"fk":28},'
 
                     +'{"text":"'+data.dic20.text+'",'
                     +'"id":'+data.dic20.id+','
                     +'"block":'+data.dic20.block+','
                     +'"index":'+data.dic20.index+','
                     +'"type":'+data.dic20.type+','
-                    +'"userId":'+data.dic20.userId+'},'
+                    +'"userId":'+data.dic20.userId+','
+                    +'"fk":5},'
 
                     +'{"text":"'+data.dic21.text+'",'
                     +'"id":'+data.dic21.id+','
@@ -385,28 +528,32 @@
                     +'"block":'+data.dic23.block+','
                     +'"index":'+data.dic23.index+','
                     +'"type":'+data.dic23.type+','
-                    +'"userId":'+data.dic23.userId+'},'
+                    +'"userId":'+data.dic23.userId+','
+                    +'"fk":30},'
 
                     +'{"image":"'+data.dic24.image+'",'
                     +'"id":'+data.dic24.id+','
                     +'"block":'+data.dic24.block+','
                     +'"index":'+data.dic24.index+','
                     +'"type":'+data.dic24.type+','
-                    +'"userId":'+data.dic24.userId+'},'
+                    +'"userId":'+data.dic24.userId+','
+                    +'"fk":31},'
 
                     +'{"image":"'+data.dic25.image+'",'
                     +'"id":'+data.dic25.id+','
                     +'"block":'+data.dic25.block+','
                     +'"index":'+data.dic25.index+','
                     +'"type":'+data.dic25.type+','
-                    +'"userId":'+data.dic25.userId+'},'
+                    +'"userId":'+data.dic25.userId+','
+                    +'"fk":32},'
 
                     +'{"image":"'+data.dic26.image+'",'
                     +'"id":'+data.dic26.id+','
                     +'"block":'+data.dic26.block+','
                     +'"index":'+data.dic26.index+','
                     +'"type":'+data.dic26.type+','
-                    +'"userId":'+data.dic26.userId+'}'
+                    +'"userId":'+data.dic26.userId+','
+                    +'"fk":33}'
 
                     +']';
                 console.info(txt);
@@ -432,7 +579,8 @@
                                'type':1001,
                                'block':2,
                                'index':index++,
-                               'text':boldText[0]
+                               'text':boldText[0],
+                               'fk':6
                             };
                             newJson.push(a);
                           }
@@ -441,7 +589,8 @@
                                 'type':1001,
                                'block':2,
                                'index':index++,
-                               'text':boldText[z]
+                               'text':boldText[z],
+                               'fk':6
                               };
                             newJson.push(a);
                             }
@@ -450,7 +599,8 @@
                                 'type':1003,
                                'block':2,
                                'index':index++,
-                               'text':boldText[z]
+                               'text':boldText[z],
+                               'fk':6
                               };
                               newJson.push(a);
                             }
@@ -473,7 +623,8 @@
                                        'id':id++,
                                        'index':index++,
                                        'userId': 0,
-                                       'text':boldText[0]
+                                       'text':boldText[0],
+                                       'fk':29
                                     };
                                     newJson.push(a);
                                   }
@@ -484,7 +635,8 @@
                                        'id':id++,
                                        'userId': 0,
                                        'index':index++,
-                                       'text':boldText[z]
+                                       'text':boldText[z],
+                                       'fk':29
                                       };
                                     newJson.push(a);
                                     }
@@ -495,7 +647,8 @@
                                        'id':id++,
                                        'userId': 0,
                                        'index':index++,
-                                       'text':boldText[z]
+                                       'text':boldText[z],
+                                       'fk':29
                                       };
                                       newJson.push(a);
                                     }
@@ -518,5 +671,4 @@
 
 
 </script>
-</body>
 </html>

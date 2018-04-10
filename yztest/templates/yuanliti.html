@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>json数据生成</title>
-
+    <script type="text/javascript" src="/static/jquery/jquery.js"></script>
     <style type="text/css">
         input {
             width: 800px;
@@ -12,6 +12,7 @@
         }
 
     </style>
+
 </head>
 <body>
 <div>
@@ -76,7 +77,10 @@
         <tr>解释图片地址2(此处暂时不用录入)<input id="image6" type="text" ></tr><br>
         <tr>解释图片地址3(此处暂时不用录入)<input id="image7" type="text" ></tr><br>
         <tr>解释图片地址4(此处暂时不用录入)<input id="image8" type="text" ></tr><br>
-        <tr><button>生成json</button></tr>
+        <tr>
+            <button id="shengcheng">生成json</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="update">修改json</button>
+        </tr>
     </table>
 </div>
 
@@ -85,13 +89,112 @@
 </div>
 
 </div>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+
+</body>
 <script type="text/javascript">
 
 
-    $(function(){
+    // $(function(){
+$(document).ready(function() {
 
-        $("button").click(function(){
+        $("#update").click(function(){
+            var dd = $("#tarea").val();
+            var wenben = eval(dd)
+            var rr = ""
+            var tt = ""
+
+            for(var i in wenben){
+                if(wenben[i].fk == 1){
+                    $("#qimage1").val(wenben[i].image);
+
+                }
+                if (wenben[i].fk == 2) {
+                    $("#qimage2").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 3) {
+                    $("#qimage3").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 4) {
+                    $("#title").val(wenben[i].text);
+                }
+                if (wenben[i].fk == 5) {
+                    $("#intro").val(wenben[i].text);
+                }
+
+                if (wenben[i].fk == 6) {
+                    
+                    var ww = wenben[i];
+                    if (ww.type == 1001) {
+                        rr+=ww.text;
+                    }
+                    if (ww.type == 5001) {
+                        rr+='++';
+                    }
+                    if (ww.type == 1003) {
+                        rr+='||'+ww.text+'||';
+                    }
+                    
+                }
+                if (wenben[i].fk == 7) {
+                    $("#image1").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 8) {
+                    $("#image2").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 9) {
+                    $("#image3").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 10) {
+                    $("#image4").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 11) {
+                    $("#right").val(wenben[i].text);
+                    $("#rightimage").val(wenben[i].brief);
+                }
+                // if (wenben[i].fk == 12) {
+                //     $("#image1").val(wenben[i].text);
+                // }
+                if (wenben[i].fk == 13) {
+                    $("#error").val(wenben[i].text);
+                    $("#errorimage").val(wenben[i].brief);
+                }
+                // if (wenben[i].fk == 14) {
+                //     $("#image1").val(wenben[i].text);
+                // }
+                if (wenben[i].fk == 15) {
+                    var ww = wenben[i];
+                    if (ww.type == 1001) {
+                        tt+=ww.text;
+                    }
+                    if (ww.type == 5001) {
+                        tt+='++';
+                    }
+                    if (ww.type == 1003) {
+                        tt+='||'+ww.text+'||';
+                    }
+                }
+                if (wenben[i].fk == 16) {
+                    $("#image5").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 17) {
+                    $("#image6").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 18) {
+                    $("#image7").val(wenben[i].image);
+                }
+                if (wenben[i].fk == 19) {
+                    $("#image8").val(wenben[i].image);
+                }
+            }
+                $("#content").val(rr);
+                $("#know").val(tt);
+
+
+        });
+
+
+        $("#shengcheng").click(function(){
 
         var title = $("#title").val();
 
@@ -190,35 +293,40 @@
                     +'"id":'+data.dic1.id+','
                     +'"block":'+data.dic1.block+','
                     +'"type":'+data.dic1.type+','
-                    +'"userId":'+data.dic1.userId+'},'
+                    +'"userId":'+data.dic1.userId+','
+                    +'"fk":4},'
 
                     +'{"image":"'+data.dic18.image+'",'
                     +'"id":'+data.dic18.id+','
                     +'"block":'+data.dic18.block+','
                     +'"index":'+data.dic18.index+','
                     +'"type":'+data.dic18.type+','
-                    +'"userId":'+data.dic18.userId+'},'
+                    +'"userId":'+data.dic18.userId+','
+                    +'"fk":1},'
 
                     +'{"image":"'+data.dic19.image+'",'
                     +'"id":'+data.dic19.id+','
                     +'"block":'+data.dic19.block+','
                     +'"index":'+data.dic19.index+','
                     +'"type":'+data.dic19.type+','
-                    +'"userId":'+data.dic19.userId+'},'
+                    +'"userId":'+data.dic19.userId+','
+                    +'"fk":2},'
 
                     +'{"image":"'+data.dic20.image+'",'
                     +'"id":'+data.dic20.id+','
                     +'"block":'+data.dic20.block+','
                     +'"index":'+data.dic20.index+','
                     +'"type":'+data.dic20.type+','
-                    +'"userId":'+data.dic20.userId+'},'
+                    +'"userId":'+data.dic20.userId+','
+                    +'"fk":3},'
 
                     +'{"text":"'+data.dic2.text+'",'
                     +'"id":'+data.dic2.id+','
                     +'"type":'+data.dic2.type+','
                     +'"block":'+data.dic2.block+','
                     +'"index":'+data.dic2.index+','
-                    +'"userId":'+data.dic2.userId+'},'
+                    +'"userId":'+data.dic2.userId+','
+                    +'"fk":6},'
 
                     // +'{"text":"'+data.dic3.text+'",'
                     // +'"id":'+data.dic3.id+','
@@ -227,33 +335,37 @@
                     // +'"index":'+data.dic3.index+','
                     // +'"userId":'+data.dic3.userId+'},'
 
-                    +'{"text":"'+data.dic4.image+'",'
+                    +'{"image":"'+data.dic4.image+'",'
                     +'"id":'+data.dic4.id+','
                     +'"block":'+data.dic4.block+','
                     +'"index":'+data.dic4.index+','
                     +'"type":'+data.dic4.type+','
-                    +'"userId":'+data.dic4.userId+'},'
+                    +'"userId":'+data.dic4.userId+','
+                    +'"fk":7},'
 
-                    +'{"text":"'+data.dic5.image+'",'
+                    +'{"image":"'+data.dic5.image+'",'
                     +'"id":'+data.dic5.id+','
                     +'"block":'+data.dic5.block+','
                     +'"index":'+data.dic5.index+','
                     +'"type":'+data.dic5.type+','
-                    +'"userId":'+data.dic5.userId+'},'
+                    +'"userId":'+data.dic5.userId+','
+                    +'"fk":8},'
 
-                    +'{"text":"'+data.dic6.image+'",'
+                    +'{"image":"'+data.dic6.image+'",'
                     +'"id":'+data.dic6.id+','
                     +'"block":'+data.dic6.block+','
                     +'"index":'+data.dic6.index+','
                     +'"type":'+data.dic6.type+','
-                    +'"userId":'+data.dic6.userId+'},'
+                    +'"userId":'+data.dic6.userId+','
+                    +'"fk":9},'
 
                     +'{"image":"'+data.dic7.image+'",'
                     +'"id":'+data.dic7.id+','
                     +'"block":'+data.dic7.block+','
                     +'"index":'+data.dic7.index+','
                     +'"type":'+data.dic7.type+','
-                    +'"userId":'+data.dic7.userId+'},'
+                    +'"userId":'+data.dic7.userId+','
+                    +'"fk":10},'
 
                     +'{"correctId":'+answer_valid_1_val+','
                     +'"brief":"'+data.dic8.image+'",'
@@ -262,7 +374,8 @@
                     +'"block":'+data.dic8.block+','
                     +'"index":'+data.dic8.index+','
                     +'"type":'+data.dic8.type+','
-                    +'"userId":'+data.dic8.userId+'},'
+                    +'"userId":'+data.dic8.userId+','
+                    +'"fk":11},'
 
                     +'{"correctId":'+answer_valid_2_val+','
                     +'"brief":"'+data.dic9.image+'",'
@@ -271,21 +384,24 @@
                     +'"type":'+data.dic9.type+','
                     +'"block":'+data.dic9.block+','
                     +'"index":'+data.dic9.index+','
-                    +'"userId":'+data.dic9.userId+'},'
+                    +'"userId":'+data.dic9.userId+','
+                    +'"fk":13},'
 
                     +'{"text":"'+data.dic10.text+'",'
                     +'"id":'+data.dic10.id+','
                     +'"type":'+data.dic10.type+','
                     +'"index":'+data.dic10.index+','
                     +'"block":'+data.dic10.block+','
-                    +'"userId":'+data.dic10.userId+'},'
+                    +'"userId":'+data.dic10.userId+','
+                    +'"fk":5},'
 
                     +'{"text":"'+data.dic11.text+'",'
                     +'"id":'+data.dic11.id+','
                     +'"block":'+data.dic11.block+','
                     +'"index":'+data.dic11.index+','
                     +'"type":'+data.dic11.type+','
-                    +'"userId":'+data.dic11.userId+'},'
+                    +'"userId":'+data.dic11.userId+','
+                    +'"fk":15},'
 
                     // +'{"text":"'+data.dic12.text+'",'
                     // +'"id":'+data.dic12.id+','
@@ -305,28 +421,32 @@
                     +'"type":'+data.dic14.type+','
                     +'"block":'+data.dic14.block+','
                     +'"index":'+data.dic14.index+','
-                    +'"userId":'+data.dic14.userId+'},'
+                    +'"userId":'+data.dic14.userId+','
+                    +'"fk":16},'
 
                     +'{"id":'+data.dic15.id+','
                     +'"image":"'+data.dic15.image+'",'
                     +'"type":'+data.dic15.type+','
                     +'"block":'+data.dic15.block+','
                     +'"index":'+data.dic15.index+','
-                    +'"userId":'+data.dic15.userId+'},'
+                    +'"userId":'+data.dic15.userId+','
+                    +'"fk":17},'
 
                     +'{"id":'+data.dic16.id+','
                     +'"image":"'+data.dic16.image+'",'
                     +'"type":'+data.dic16.type+','
                     +'"block":'+data.dic16.block+','
                     +'"index":'+data.dic16.index+','
-                    +'"userId":'+data.dic16.userId+'},'
+                    +'"userId":'+data.dic16.userId+','
+                    +'"fk":18},'
 
                     +'{"id":'+data.dic17.id+','
                     +'"image":"'+data.dic17.image+'",'
                     +'"type":'+data.dic17.type+','
                     +'"block":'+data.dic17.block+','
                     +'"index":'+data.dic17.index+','
-                    +'"userId":'+data.dic17.userId+'}'
+                    +'"userId":'+data.dic17.userId+','
+                    +'"fk":19}'
 
                     +']';
                 console.info(txt);
@@ -351,7 +471,8 @@
                    'type':1001,
                    'block':2,
                    'index':index++,
-                   'text':boldText[0]
+                   'text':boldText[0],
+                   'fk':6
                 };
                 newJson.push(a);
               }
@@ -360,7 +481,8 @@
                     'type':1001,
                    'block':2,
                    'index':index++,
-                   'text':boldText[z]
+                   'text':boldText[z],
+                   'fk':6
                   };
                 newJson.push(a);
                 }
@@ -369,7 +491,8 @@
                     'type':1003,
                    'block':2,
                    'index':index++,
-                   'text':boldText[z]
+                   'text':boldText[z],
+                   'fk':6
                   };
                   newJson.push(a);
                 }
@@ -379,7 +502,8 @@
                       'type':5001,
                      'block':2,
                      'index':index++,
-                     'id':100
+                     'id':100,
+                     'fk':6
                     };
                   newJson.push(a);
                 }
@@ -402,7 +526,8 @@
                                        'id':id++,
                                        'index':index++,
                                        'userId': 0,
-                                       'text':boldText[0]
+                                       'text':boldText[0],
+                                       'fk':15
                                     };
                                     newJson.push(a);
                                   }
@@ -413,7 +538,8 @@
                                        'id':id++,
                                        'userId': 0,
                                        'index':index++,
-                                       'text':boldText[z]
+                                       'text':boldText[z],
+                                       'fk':15
                                       };
                                     newJson.push(a);
                                     }
@@ -424,7 +550,8 @@
                                        'id':id++,
                                        'userId': 0,
                                        'index':index++,
-                                       'text':boldText[z]
+                                       'text':boldText[z],
+                                       'fk':15
                                       };
                                       newJson.push(a);
                                     }
@@ -448,5 +575,4 @@
 });
 
 </script>
-</body>
 </html>

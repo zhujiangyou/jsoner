@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>json数据生成</title>
-
+    <script type="text/javascript" src="/static/jquery/jquery.js"></script>
     <style type="text/css">
         input {
             width: 800px;
@@ -12,6 +12,7 @@
         }
 
     </style>
+    
 </head>
 <body>
 
@@ -238,19 +239,120 @@
             <td><input id="image8" type="text" ></td>
         </tr>
         <tr>
-            <td><button>生成json</button></td>
+            <td><button id="shengcheng">生成json</button>
+                <button id="update">修改json</button>
+            </td>
+            
         </tr>
     </table>
     </div>
 
     <textarea id="tarea" rows="20" cols="100"></textarea>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
 <script type="text/javascript">
 
 
-    $(function(){
+    // $(function(){
+    $(document).ready(function() {
 
-        $("button").click(function(){
+        $("#update").click(function(){
+            var dd = $("#tarea").val();
+            var wenben = eval(dd)
+             var rr = ""
+            var tt = ""
+            for(var i in wenben){
+                if(wenben[i].fk == 1){
+                    $("#qimage1").val(wenben[i].image);
+
+                }
+                if(wenben[i].fk == 2){
+                    $("#qimage2").val(wenben[i].image);
+
+                }
+                if(wenben[i].fk == 3){
+                    $("#qimage3").val(wenben[i].image);
+
+                }
+                if(wenben[i].fk == 4){
+                    $("#title").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 5){
+                    $("#intro").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 6){
+                    // $("#content").val(wenben[i].text);
+                    var ww = wenben[i];
+                    if (ww.type == 1001) {
+                        rr+=ww.text;
+                    }
+                    if (ww.type == 5001) {
+                        rr+='++';
+                    }
+                    if (ww.type == 1003) {
+                        rr+='||'+ww.text+'||';
+                    }
+                }
+                if(wenben[i].fk == 7){
+                    $("#image1").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 8){
+                    $("#image2").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 9){
+                    $("#image3").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 10){
+                    $("#image4").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 11){
+                    $("#right").val(wenben[i].text);
+                    $("#rightimage").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 13){
+                    $("#error1").val(wenben[i].text);
+                    $("#error1image").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 15){
+                    $("#error2").val(wenben[i].text);
+                    $("#error2image").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 17){
+                    $("#error3").val(wenben[i].text);
+                    $("#error3image").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 19){
+                    // $("#know").val(wenben[i].text);
+                    var ww = wenben[i];
+                    if (ww.type == 1001) {
+                        tt+=ww.text;
+                    }
+                    if (ww.type == 5001) {
+                        tt+='++';
+                    }
+                    if (ww.type == 1003) {
+                        tt+='||'+ww.text+'||';
+                    }
+                }
+                if(wenben[i].fk == 20){
+                    $("#image5").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 21){
+                    $("#image6").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 22){
+                    $("#image7").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 23){
+                    $("#image8").val(wenben[i].image);
+                }
+            }
+             $("#content").val(rr);
+                $("#know").val(tt);
+
+        });
+
+        $("#shengcheng").click(function(){
 
         var title = $("#title").val();
 
@@ -366,28 +468,33 @@
                     +'"id":'+data.dic1.id+','
                     +'"block":'+data.dic1.block+','
                     +'"type":'+data.dic1.type+','
-                    +'"userId":'+data.dic1.userId+'},'
+                    +'"userId":'+data.dic1.userId+','
+                    +'"fk":4},'
+
 
                     +'{"image":"'+data.dic19.image+'",'
                     +'"id":'+data.dic19.id+','
                     +'"block":'+data.dic19.block+','
                     +'"index":'+data.dic19.index+','
                     +'"type":'+data.dic19.type+','
-                    +'"userId":'+data.dic19.userId+'},'
+                    +'"userId":'+data.dic19.userId+','
+                    +'"fk":1},'
 
                     +'{"image":"'+data.dic20.image+'",'
                     +'"id":'+data.dic20.id+','
                     +'"block":'+data.dic20.block+','
                     +'"index":'+data.dic20.index+','
                     +'"type":'+data.dic20.type+','
-                    +'"userId":'+data.dic20.userId+'},'
+                    +'"userId":'+data.dic20.userId+','
+                    +'"fk":2},'
 
                     +'{"image":"'+data.dic21.image+'",'
                     +'"id":'+data.dic21.id+','
                     +'"block":'+data.dic21.block+','
                     +'"index":'+data.dic21.index+','
                     +'"type":'+data.dic21.type+','
-                    +'"userId":'+data.dic21.userId+'},'
+                    +'"userId":'+data.dic21.userId+','
+                    +'"fk":3},'
 
                     +'{"text":"'+data.dic2.text+'",'
                     +'"id":'+data.dic2.id+','
@@ -408,28 +515,32 @@
                     +'"block":'+data.dic4.block+','
                     +'"index":'+data.dic4.index+','
                     +'"type":'+data.dic4.type+','
-                    +'"userId":'+data.dic4.userId+'},'
+                    +'"userId":'+data.dic4.userId+','
+                    +'"fk":7},'
 
                     +'{"image":"'+data.dic5.image+'",'
                     +'"id":'+data.dic5.id+','
                     +'"block":'+data.dic5.block+','
                     +'"index":'+data.dic5.index+','
                     +'"type":'+data.dic5.type+','
-                    +'"userId":'+data.dic5.userId+'},'
+                    +'"userId":'+data.dic5.userId+','
+                    +'"fk":8},'
 
                     +'{"image":"'+data.dic6.image+'",'
                     +'"id":'+data.dic6.id+','
                     +'"block":'+data.dic6.block+','
                     +'"index":'+data.dic6.index+','
                     +'"type":'+data.dic6.type+','
-                    +'"userId":'+data.dic6.userId+'},'
+                    +'"userId":'+data.dic6.userId+','
+                    +'"fk":9},'
 
                     +'{"image":"'+data.dic7.image+'",'
                     +'"id":'+data.dic7.id+','
                     +'"block":'+data.dic7.block+','
                     +'"index":'+data.dic7.index+','
                     +'"type":'+data.dic7.type+','
-                    +'"userId":'+data.dic7.userId+'},'
+                    +'"userId":'+data.dic7.userId+','
+                    +'"fk":10},'
 
                     +'{"image":"'+data.dic8.image+'",'
                     +'"correctId":'+answer_valid_1_val+','
@@ -438,7 +549,8 @@
                     +'"index":'+data.dic8.index+','
                     +'"text":"'+data.dic8.text+'",'
                     +'"type":'+data.dic8.type+','
-                    +'"userId":'+data.dic8.userId+'},'
+                    +'"userId":'+data.dic8.userId+','
+                    +'"fk":11},'
 
                     +'{"image":"'+data.dic9.image+'",'
                     +'"correctId":'+answer_valid_2_val+','
@@ -447,7 +559,8 @@
                     +'"index":'+data.dic9.index+','
                     +'"text":"'+data.dic9.text+'",'
                     +'"type":'+data.dic9.type+','
-                    +'"userId":'+data.dic9.userId+'},'
+                    +'"userId":'+data.dic9.userId+','
+                    +'"fk":13},'
 
                     +'{"image":"'+data.dic10.image+'",'
                     +'"correctId":'+answer_valid_3_val+','
@@ -456,7 +569,8 @@
                     +'"index":'+data.dic10.index+','
                     +'"text":"'+data.dic10.text+'",'
                     +'"type":'+data.dic10.type+','
-                    +'"userId":'+data.dic10.userId+'},'
+                    +'"userId":'+data.dic10.userId+','
+                    +'"fk":15},'
 
                     +'{"image":"'+data.dic11.image+'",'
                     +'"correctId":'+answer_valid_4_val+','
@@ -465,14 +579,16 @@
                     +'"index":'+data.dic11.index+','
                     +'"text":"'+data.dic11.text+'",'
                     +'"type":'+data.dic11.type+','
-                    +'"userId":'+data.dic11.userId+'},'
+                    +'"userId":'+data.dic11.userId+','
+                    +'"fk":17},'
 
                     +'{"text":"'+data.dic12.text+'",'
                     +'"block":'+data.dic12.block+','
                     +'"id":'+data.dic12.id+','
                     +'"index":'+data.dic12.index+','
                     +'"type":'+data.dic12.type+','
-                    +'"userId":'+data.dic12.userId+'},'
+                    +'"userId":'+data.dic12.userId+','
+                    +'"fk":5},'
 
                     +'{"text":"'+data.dic13.text+'",'
                     +'"id":'+data.dic13.id+','
@@ -493,28 +609,32 @@
                     +'"block":'+data.dic15.block+','
                     +'"index":'+data.dic15.index+','
                     +'"type":'+data.dic15.type+','
-                    +'"userId":'+data.dic15.userId+'},'
+                    +'"userId":'+data.dic15.userId+','
+                    +'"fk":20},'
 
                     +'{"image":"'+data.dic16.image+'",'
                     +'"id":'+data.dic16.id+','
                     +'"block":'+data.dic16.block+','
                     +'"index":'+data.dic16.index+','
                     +'"type":'+data.dic16.type+','
-                    +'"userId":'+data.dic16.userId+'},'
+                    +'"userId":'+data.dic16.userId+','
+                    +'"fk":21},'
 
                     +'{"image":"'+data.dic17.image+'",'
                     +'"id":'+data.dic17.id+','
                     +'"block":'+data.dic17.block+','
                     +'"index":'+data.dic17.index+','
                     +'"type":'+data.dic17.type+','
-                    +'"userId":'+data.dic17.userId+'},'
+                    +'"userId":'+data.dic17.userId+','
+                    +'"fk":22},'
 
                     +'{"image":"'+data.dic18.image+'",'
                     +'"id":'+data.dic18.id+','
                     +'"block":'+data.dic18.block+','
                     +'"index":'+data.dic18.index+','
                     +'"type":'+data.dic18.type+','
-                    +'"userId":'+data.dic18.userId+'}'
+                    +'"userId":'+data.dic18.userId+','
+                    +'"fk":23}'
 
                     +']';
                 console.info(txt);
@@ -538,7 +658,8 @@
                    'type':1001,
                    'block':2,
                    'index':index++,
-                   'text':boldText[0]
+                   'text':boldText[0],
+                   'fk':6
                 };
                 newJson.push(a);
               }
@@ -547,7 +668,8 @@
                     'type':1001,
                    'block':2,
                    'index':index++,
-                   'text':boldText[z]
+                   'text':boldText[z],
+                   'fk':6
                   };
                 newJson.push(a);
                 }
@@ -556,7 +678,8 @@
                     'type':1003,
                    'block':2,
                    'index':index++,
-                   'text':boldText[z]
+                   'text':boldText[z],
+                   'fk':6
                   };
                   newJson.push(a);
                 }
@@ -566,7 +689,8 @@
                       'type':5001,
                      'block':2,
                      'index':index++,
-                     'id':100
+                     'id':100,
+                     'fk':6
                     };
                   newJson.push(a);
                 }
@@ -589,7 +713,8 @@
                                        'id':id++,
                                        'index':index++,
                                        'userId': 0,
-                                       'text':boldText[0]
+                                       'text':boldText[0],
+                                       'fk':19
                                     };
                                     newJson.push(a);
                                   }
@@ -600,7 +725,8 @@
                                        'id':id++,
                                        'userId': 0,
                                        'index':index++,
-                                       'text':boldText[z]
+                                       'text':boldText[z],
+                                       'fk':19
                                       };
                                     newJson.push(a);
                                     }
@@ -611,7 +737,8 @@
                                        'id':id++,
                                        'userId': 0,
                                        'index':index++,
-                                       'text':boldText[z]
+                                       'text':boldText[z],
+                                       'fk':19
                                       };
                                       newJson.push(a);
                                     }
@@ -635,5 +762,4 @@
 });
 
 </script>
-</body>
 </html>

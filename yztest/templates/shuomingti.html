@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>json数据生成</title>
-
+    <script type="text/javascript" src="/static/jquery/jquery.js"></script>
     <style type="text/css">
         input {
             width: 800px;
@@ -63,16 +63,108 @@
         <tr>第四张图片<input  id="image4" type="text" ></tr><br>
 
 
-        <tr><button>生成json</button></tr>
+        <tr><button id="shengcheng">生成json</button>&nbsp;&nbsp;
+            <button id="update">修改json</button>
+        </tr>
     </table>
     </div>
     <textarea id="tarea" rows="20" cols="100"></textarea>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
 <script type="text/javascript">
 
-    $(function(){
+    // $(function(){
+    $(document).ready(function() {
+        $("#update").click(function(){
+            var dd = $("#tarea").val();
+            var wenben = eval(dd)
+            var rr = ""
+            var tt = ""
+            var yy = ""
+            // for(var i in wenben){
+            for(var i = wenben.length-1;i>=0;i--){  
+                if(wenben[i].fk == 1){
+                    $("#title").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 2){
+                    $("#qimage1").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 3){
+                    $("#qimage2").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 4){
+                    $("#qimage3").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 5){
+                    // $("#qimage1").val(wenben[i].image);
+                    var ww = wenben[i];
+                    if (ww.type == 4001) {
+                        rr+=''+ww.text+'。';
+                    }
+                }
+                if(wenben[i].fk == 6){
+                    $("#question1").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 7){
+                    $("#right1").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 8){
+                    $("#error1").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 9){
+                    $("#rightshuoming1").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 10){
+                    $("#errorshuoming1").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 11){
+                    // $("#errorshuoming1").val(wenben[i].text);
+                    var ww = wenben[i];
+                    if (ww.type == 4001) {
+                        tt+=''+ww.text+'。';
+                    }
+                }
+                if(wenben[i].fk == 12){
+                    $("#question2").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 13){
+                    $("#right2").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 14){
+                    $("#error2").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 15){
+                    $("#rightshuoming2").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 16){
+                    $("#errorshuoming2").val(wenben[i].text);
+                }
+                if(wenben[i].fk == 17){
+                    // $("#errorshuoming2").val(wenben[i].text);
+                    var ww = wenben[i];
+                    if (ww.type == 4001) {
+                        yy+=''+ww.text+'。';
+                    }
+                }
+                if(wenben[i].fk == 18){
+                    $("#image1").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 19){
+                    $("#image2").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 20){
+                    $("#image3").val(wenben[i].image);
+                }
+                if(wenben[i].fk == 21){
+                    $("#image4").val(wenben[i].image);
+                }
+            }
+            $("#duihua1").val(rr);
+            $("#duihua2").val(tt);
+            $("#duihua3").val(yy);
 
-        $("button").click(function(){
+        });
+        $("#shengcheng").click(function(){
 
         var title = $("#title").val();
         var duihua1 = $("#duihua1").val();
@@ -137,42 +229,48 @@
                     +'"id":'+data.dic1.id+','
                     +'"block":'+data.dic1.block+','
                     +'"type":'+data.dic1.type+','
-                    +'"userId":'+data.dic1.userId+'},'
+                    +'"userId":'+data.dic1.userId+','
+                    +'"fk":1},'
 
                     +'{"image":"'+data.dic19.image+'",'
                     +'"id":'+data.dic19.id+','
                     +'"block":'+data.dic19.block+','
                     +'"index":'+data.dic19.index+','
                     +'"type":'+data.dic19.type+','
-                    +'"userId":'+data.dic19.userId+'},'
+                    +'"userId":'+data.dic19.userId+','
+                    +'"fk":2},'
 
                     +'{"image":"'+data.dic20.image+'",'
                     +'"id":'+data.dic20.id+','
                     +'"block":'+data.dic20.block+','
                     +'"index":'+data.dic20.index+','
                     +'"type":'+data.dic20.type+','
-                    +'"userId":'+data.dic20.userId+'},'
+                    +'"userId":'+data.dic20.userId+','
+                    +'"fk":3},'
 
                     +'{"image":"'+data.dic21.image+'",'
                     +'"id":'+data.dic21.id+','
                     +'"block":'+data.dic21.block+','
                     +'"index":'+data.dic21.index+','
                     +'"type":'+data.dic21.type+','
-                    +'"userId":'+data.dic21.userId+'},'
+                    +'"userId":'+data.dic21.userId+','
+                    +'"fk":4},'
 
                     +'{"text":"'+data.dic2.text+'",'
                     +'"id":'+data.dic2.id+','
                     +'"block":'+data.dic2.block+','
                     +'"index":'+data.dic2.index+','
                     +'"type":'+data.dic2.type+','
-                    +'"userId":'+data.dic2.userId+'},'
+                    +'"userId":'+data.dic2.userId+','
+                    +'"fk":5},'
 
                     +'{"text":"'+data.dic3.text+'",'
                     +'"id":'+data.dic3.id+','
                     +'"type":'+data.dic3.type+','
                     +'"block":'+data.dic3.block+','
                     +'"index":'+data.dic3.index+','
-                    +'"userId":'+data.dic3.userId+'},'
+                    +'"userId":'+data.dic3.userId+','
+                    +'"fk":6},'
 
                     +'{"text":"'+data.dic4.text+'",'
                     +'"id":'+data.dic4.id+','
@@ -181,7 +279,8 @@
                     +'"block":'+data.dic4.block+','
                     +'"index":'+data.dic4.index+','
                     +'"parentId":'+data.dic4.parentId+','
-                    +'"userId":'+data.dic4.userId+'},'
+                    +'"userId":'+data.dic4.userId+','
+                    +'"fk":7},'
 
                     +'{"text":"'+data.dic5.text+'",'
                     +'"id":'+data.dic5.id+','
@@ -190,7 +289,8 @@
                     +'"index":'+data.dic5.index+','
                     +'"correctId":'+data.dic5.correctId+','
                     +'"parentId":'+data.dic5.parentId+','
-                    +'"userId":'+data.dic5.userId+'},'
+                    +'"userId":'+data.dic5.userId+','
+                    +'"fk":8},'
 
                     +'{"text":"'+data.dic6.text+'",'
                     +'"id":'+data.dic6.id+','
@@ -198,7 +298,8 @@
                     +'"block":'+data.dic6.block+','
                     +'"index":'+data.dic6.index+','
                     +'"parentId":'+data.dic6.parentId+','
-                    +'"userId":'+data.dic6.userId+'},'
+                    +'"userId":'+data.dic6.userId+','
+                    +'"fk":9},'
 
                     +'{"text":"'+data.dic7.text+'",'
                     +'"id":'+data.dic7.id+','
@@ -206,21 +307,24 @@
                     +'"block":'+data.dic7.block+','
                     +'"index":'+data.dic7.index+','
                     +'"parentId":'+data.dic7.parentId+','
-                    +'"userId":'+data.dic7.userId+'},'
+                    +'"userId":'+data.dic7.userId+','
+                    +'"fk":10},'
 
                     +'{"text":"'+data.dic8.text+'",'
                     +'"id":'+data.dic8.id+','
                     +'"block":'+data.dic8.block+','
                     +'"index":'+data.dic8.index+','
                     +'"type":'+data.dic8.type+','
-                    +'"userId":'+data.dic8.userId+'},'
+                    +'"userId":'+data.dic8.userId+','
+                    +'"fk":11},'
 
                     +'{"text":"'+data.dic9.text+'",'
                     +'"id":'+data.dic9.id+','
                     +'"block":'+data.dic9.block+','
                     +'"index":'+data.dic9.index+','
                     +'"type":'+data.dic9.type+','
-                    +'"userId":'+data.dic9.userId+'},'
+                    +'"userId":'+data.dic9.userId+','
+                    +'"fk":12},'
 
                     +'{"text":"'+data.dic10.text+'",'
                     +'"id":'+data.dic10.id+','
@@ -229,7 +333,8 @@
                     +'"correctId":'+data.dic10.correctId+','
                     +'"type":'+data.dic10.type+','
                     +'"parentId":'+data.dic10.parentId+','
-                    +'"userId":'+data.dic10.userId+'},'
+                    +'"userId":'+data.dic10.userId+','
+                    +'"fk":13},'
 
                     +'{"text":"'+data.dic11.text+'",'
                     +'"id":'+data.dic11.id+','
@@ -238,7 +343,8 @@
                     +'"correctId":'+data.dic11.correctId+','
                     +'"type":'+data.dic11.type+','
                     +'"parentId":'+data.dic11.parentId+','
-                    +'"userId":'+data.dic11.userId+'},'
+                    +'"userId":'+data.dic11.userId+','
+                    +'"fk":14},'
 
                     +'{"text":"'+data.dic12.text+'",'
                     +'"id":'+data.dic12.id+','
@@ -246,7 +352,8 @@
                     +'"block":'+data.dic12.block+','
                     +'"index":'+data.dic12.index+','
                     +'"parentId":'+data.dic12.parentId+','
-                    +'"userId":'+data.dic12.userId+'},'
+                    +'"userId":'+data.dic12.userId+','
+                    +'"fk":15},'
 
                     +'{"text":"'+data.dic13.text+'",'
                     +'"id":'+data.dic13.id+','
@@ -254,34 +361,40 @@
                     +'"index":'+data.dic13.index+','
                     +'"type":'+data.dic13.type+','
                     +'"parentId":'+data.dic13.parentId+','
-                    +'"userId":'+data.dic13.userId+'},'
+                    +'"userId":'+data.dic13.userId+','
+                    +'"fk":16},'
 
                     +'{"text":"'+data.dic14.text+'",'
                     +'"id":'+data.dic14.id+','
                     +'"block":'+data.dic14.block+','
                     +'"index":'+data.dic14.index+','
                     +'"type":'+data.dic14.type+','
-                    +'"userId":'+data.dic14.userId+'},'
+                    +'"userId":'+data.dic14.userId+','
+                    +'"fk":17},'
 
                     +'{"image":"'+data.dic15.image+'",'
                     +'"id":'+data.dic15.id+','
                     +'"type":'+data.dic15.type+','
-                    +'"userId":'+data.dic15.userId+'},'
+                    +'"userId":'+data.dic15.userId+','
+                    +'"fk":18},'
 
                     +'{"image":"'+data.dic16.image+'",'
                     +'"id":'+data.dic16.id+','
                     +'"type":'+data.dic16.type+','
-                    +'"userId":'+data.dic16.userId+'},'
+                    +'"userId":'+data.dic16.userId+','
+                    +'"fk":19},'
 
                     +'{"image":"'+data.dic17.image+'",'
                     +'"id":'+data.dic17.id+','
                     +'"type":'+data.dic17.type+','
-                    +'"userId":'+data.dic17.userId+'},'
+                    +'"userId":'+data.dic17.userId+','
+                    +'"fk":20},'
 
                     +'{"image":"'+data.dic18.image+'",'
                     +'"id":'+data.dic18.id+','
                     +'"type":'+data.dic18.type+','
-                    +'"userId":'+data.dic18.userId+'}'
+                    +'"userId":'+data.dic18.userId+','
+                    +'"fk":21}'
 
 
                     +']';
@@ -316,7 +429,8 @@
                                                     "type": 4001,
                                                     "userId": 0,
                                                     "block": 7,
-                                                    "index": 1
+                                                    "index": 1,
+                                                    "fk":5
                                                  };
                                                  newJson.push(a);
                                              }
@@ -346,7 +460,8 @@
                                                     "type": 4001,
                                                     "userId": 0,
                                                     "block": 7,
-                                                    "index": 7
+                                                    "index": 7,
+                                                    "fk":11
                                                  };
                                                  newJson.push(a);
                                              }
@@ -370,7 +485,8 @@
                                                     "type": 4001,
                                                     "userId": 0,
                                                     "block": 7,
-                                                    "index": 13
+                                                    "index": 13,
+                                                    "fk":17
                                                  };
                                                  newJson.push(a);
                                              }
@@ -395,5 +511,4 @@
 
 
 </script>
-</body>
 </html>
